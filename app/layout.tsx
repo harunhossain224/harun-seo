@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     title: "Md. Harun or Roshid — Senior SEO Executive Portfolio",
     description: "5+ Years of practical SEO experience helping businesses grow organic search visibility, fix technical issues, and acquire high-quality backlinks.",
     type: "website",
-  },
+    },
 };
 
 export default function RootLayout({
@@ -25,9 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} dark`}>
       <body className="dark:bg-[#092328] bg-[#f4f8f7] dark:text-gray-100 text-[#092328] min-h-screen selection:bg-[#2A835F] selection:text-white font-sans antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );
