@@ -128,7 +128,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-3.5 py-1.5 text-xs sm:text-sm font-medium rounded-full transition-all duration-200 flex items-center ${active
+                className={`relative px-2.5 xl:px-3.5 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 flex items-center whitespace-nowrap ${active
                     ? "bg-gradient-to-r from-[#2A835F] to-[#12544F] text-white shadow-md shadow-[#2A835F]/30 font-semibold scale-[1.02]"
                     : "dark:text-gray-300 text-gray-700 dark:hover:text-[#8BBB92] hover:text-[#12544F] dark:hover:bg-[#2A835F]/20 hover:bg-emerald-600/10"
                   }`}
