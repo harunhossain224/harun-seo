@@ -33,6 +33,7 @@ export default function Footer() {
             <h4 className="text-sm font-bold dark:text-white text-[#092328] uppercase tracking-wider">Quick Navigation</h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li><Link href="/about" className="hover:text-[#2A835F] transition-colors">About Specialist</Link></li>
+              <li><Link href="/blog" className="hover:text-[#2A835F] transition-colors">SEO Blog & Guides</Link></li>
               <li><Link href="/#services" className="hover:text-[#2A835F] transition-colors">Core SEO Services</Link></li>
               <li><Link href="/#solutions" className="hover:text-[#2A835F] transition-colors">SEO Problems Solved</Link></li>
               <li><Link href="/#tools" className="hover:text-[#2A835F] transition-colors">Tools & Technologies</Link></li>

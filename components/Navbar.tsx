@@ -71,6 +71,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
     { name: "Services", href: "/#services" },
     { name: "Solutions", href: "/#solutions" },
     { name: "SEO Tools", href: "/#tools" },
@@ -85,6 +86,9 @@ export default function Navbar() {
     }
     if (href === "/about") {
       return pathname === "/about" || (pathname === "/" && activeSection === "about");
+    }
+    if (href === "/blog") {
+      return pathname === "/blog" || pathname.startsWith("/blog/");
     }
     if (href.startsWith("/#")) {
       const hash = href.replace("/#", "");
