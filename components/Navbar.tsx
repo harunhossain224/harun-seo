@@ -31,7 +31,7 @@ export default function Navbar() {
       return;
     }
 
-    const sectionIds = ["services", "solutions", "tools", "experience", "niches", "faq", "about"];
+    const sectionIds = ["services", "solutions", "tools", "experience", "niches", "blog-preview", "faq", "about"];
     const handleScroll = () => {
       if (window.scrollY < 180) {
         setActiveSection("");
