@@ -14,9 +14,6 @@ import {
   AlertCircle,
 } from "lucide-react";
 
-const WEB3FORMS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "30668f1c-235c-4c9d-ac92-62b07cafa44d";
-
 export default function AuditFormSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -48,39 +45,51 @@ export default function AuditFormSection() {
     setIsSubmitting(true);
 
     try {
-      // Primary: Direct submission to Web3Forms from browser
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // Primary: FormSubmit direct delivery to harunsha197@gmail.com (verified in inbox)
+      const response = await fetch("https://formsubmit.co/ajax/harunsha197@gmail.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `🎯 New Free SEO Audit Request: ${formData.website} (${formData.name})`,
-          from_name: "HarunSEO.com Leads",
-          name: formData.name,
-          email: formData.email,
-          replyto: formData.email,
+          _subject: `🎯 New SEO Audit Request: ${formData.website} (${formData.name})`,
+          _replyto: formData.email,
+          _template: "table",
+          "Client Name": formData.name,
+          "Client Email": formData.email,
           "Target Website": formData.website,
-          "Service Needed": formData.service,
+          "Primary Service": formData.service,
           "Target Keywords": formData.keywords || "Not specified",
-          "Project Goals / Message": formData.message || "None",
+          "Project Details": formData.message || "No extra notes",
         }),
       });
 
       const result = await response.json();
 
-      if (!result.success) {
-        // Fallback: If client-side Web3Forms rejected, try local Next.js API route
-        const fallbackRes = await fetch("/api/audit", {
+      if (result.success !== "true" && result.success !== true) {
+        // Fallback: Web3Forms or local Next.js route
+        const fallbackRes = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            access_key: "30668f1c-235c-4c9d-ac92-62b07cafa44d",
+            subject: `🎯 New Free SEO Audit Request: ${formData.website} (${formData.name})`,
+            name: formData.name,
+            email: formData.email,
+            replyto: formData.email,
+            website: formData.website,
+            service: formData.service,
+            message: formData.message || "None",
+          }),
         });
+
         const fallbackData = await fallbackRes.json();
-        if (!fallbackRes.ok) {
-          throw new Error(fallbackData.error || result.message || "Failed to submit request.");
+        if (!fallbackData.success) {
+          throw new Error("Failed to send audit request. Please message on WhatsApp.");
         }
       }
 
