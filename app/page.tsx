@@ -6,6 +6,7 @@ import ProblemsSection from "@/components/ProblemsSection";
 import ToolsSection from "@/components/ToolsSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import AuditFormSection from "@/components/AuditFormSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <ToolsSection />
       <ExperienceSection />
       <TargetAudienceSection />
+      <TestimonialsSection />
       <AuditFormSection />
       <FAQSection />
       <Footer />

@@ -38,6 +38,7 @@ export default function Footer() {
               <li><Link href="/#solutions" className="hover:text-[#2A835F] transition-colors">SEO Problems Solved</Link></li>
               <li><Link href="/#tools" className="hover:text-[#2A835F] transition-colors">Tools & Technologies</Link></li>
               <li><Link href="/#experience" className="hover:text-[#2A835F] transition-colors">ScaleUP Experience</Link></li>
+              <li><Link href="/#testimonials" className="hover:text-[#2A835F] transition-colors">Client Reviews & Proof</Link></li>
               <li><Link href="/#audit-form" className="hover:text-[#2A835F] transition-colors">Free SEO Audit Request</Link></li>
               <li><Link href="/#faq" className="hover:text-[#2A835F] transition-colors">FAQ</Link></li>
             </ul>

@@ -31,7 +31,7 @@ export default function Navbar() {
       return;
     }
 
-    const sectionIds = ["services", "solutions", "tools", "experience", "niches", "faq", "about"];
+    const sectionIds = ["services", "solutions", "tools", "experience", "niches", "testimonials", "faq", "about"];
     const handleScroll = () => {
       if (window.scrollY < 180) {
         setActiveSection("");
@@ -76,6 +76,7 @@ export default function Navbar() {
     { name: "Solutions", href: "/#solutions" },
     { name: "SEO Tools", href: "/#tools" },
     { name: "Experience", href: "/#experience" },
+    { name: "Reviews", href: "/#testimonials" },
     { name: "Target Niches", href: "/#niches" },
     { name: "FAQ", href: "/#faq" },
   ];
