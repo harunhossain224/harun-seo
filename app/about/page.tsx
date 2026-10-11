@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     "Discover the career, expertise, and SEO methodology of Md. Harun or Roshid — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, and Organic Traffic Growth.",
   keywords: [
     "Md. Harun or Roshid",
+    "Md Harun or Roshid",
+    "Harun SEO",
+    "Harun",
     "SEO Executive",
     "About Harun SEO",
     "ScaleUP Ads Agency",
@@ -38,6 +41,24 @@ export const metadata: Metadata = {
     "Technical SEO Expert",
     "Backlink Specialist",
   ],
+  alternates: {
+    canonical: "https://www.harunseo.com/about",
+  },
+  openGraph: {
+    title: "About Md. Harun or Roshid | Senior SEO Executive",
+    description:
+      "Official biography and portfolio of Md. Harun or Roshid — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO and Link Building.",
+    url: "https://www.harunseo.com/about",
+    type: "profile",
+    images: [
+      {
+        url: "/harun-seo.png",
+        width: 1200,
+        height: 630,
+        alt: "Md. Harun or Roshid - Senior SEO Executive at ScaleUP Ads Agency",
+      },
+    ],
+  },
 };
 
 export default function AboutPage() {
@@ -184,7 +205,8 @@ export default function AboutPage() {
                 <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/40 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                   <Image
                     src="/harun-seo.png"
-                    alt="Md. Harun or Roshid - Senior SEO Executive"
+                    alt="Md. Harun or Roshid - Senior SEO Executive and Specialist"
+                    title="Md. Harun or Roshid - Senior SEO Executive at ScaleUP Ads Agency"
                     width={600}
                     height={750}
                     priority

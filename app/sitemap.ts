@@ -18,18 +18,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "daily",
       priority: 1.0,
+      images: [
+        `${baseUrl}/harun-seo.png`,
+        `${baseUrl}/md-harun-or-roshid.png`,
+      ],
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9,
+      images: [
+        `${baseUrl}/harun-seo.png`,
+        `${baseUrl}/md-harun-or-roshid.png`,
+      ],
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 0.9,
+      priority: 0.8,
     },
     ...blogUrls,
   ];

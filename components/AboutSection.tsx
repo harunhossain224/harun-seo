@@ -49,7 +49,8 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                 <Image
                   src="/harun-seo.png"
-                  alt="Md. Harun or Roshid - SEO Executive"
+                  alt="Md. Harun or Roshid - Senior SEO Executive and Specialist"
+                  title="Md. Harun or Roshid - SEO Executive at ScaleUP Ads Agency"
                   width={500}
                   height={650}
                   priority
