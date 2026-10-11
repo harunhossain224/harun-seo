@@ -443,6 +443,7 @@ export const MULTILINGUAL_CONTENT = {
 
   // 10. Casual Bengali Greetings & Everyday Chat
   casualBengali: {
+    howAreYou: `আলহামদুলিল্লাহ ভাই, আমি অনেক ভালো আছি! আপনি কেমন আছেন? 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইট বা প্রজেক্টের কাজ কেমন চলছে? কোনো টেকনিক্যাল অডিট বা গুগল র‍্যাংকিং নিয়ে সাহায্য লাগবে?`,
     status: `আলহামদুলিল্লাহ ভাই, সব ভালো! আপনার কি অবস্থা? 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইট বা প্রজেক্ট কেমন চলছে? কোনো টেকনিক্যাল অডিট বা গুগল র‍্যাংকিং নিয়ে সাহায্য লাগবে?`,
     doing: `এইতো ভাই, ক্লায়েন্টদের ওয়েবসাইটের এসইও, টেকনিক্যাল অডিট আর গুগল র‍্যাংকিং নিয়ে কাজ করছি! 😊 আপনি কেমন আছেন? আপনার ওয়েবসাইটের জন্য কি কোনো পরামর্শ লাগবে?`,
     hey: `আরে ভাই! কি অবস্থা? কেমন আছেন? 👋\n\nআমি হারুনের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইটের কাজ কেমন চলছে? কোনো সার্ভিস বা ফ্রি অডিট নিয়ে আলোচনা করতে চান?`,
@@ -477,6 +478,22 @@ export function synthesizeAnswer(query: string, sessionLang?: string): string {
 
   if (clean.includes("banglish") || clean.includes("বাংলিশ")) {
     return MULTILINGUAL_CONTENT.languageSwitch.banglish;
+  }
+
+  // 0.05 "kemon aso", "kemon acho", "kemon achen", "valo acho"
+  if (
+    clean.includes("kemon aso") ||
+    clean.includes("kemon acho") ||
+    clean.includes("kemon achen") ||
+    clean.includes("কেমন আছেন") ||
+    clean.includes("কেমন আছো") ||
+    clean.includes("কেমন আছিস") ||
+    clean.includes("valo aso") ||
+    clean.includes("bhalo aso") ||
+    clean.includes("valo achen") ||
+    clean.includes("bhalo achen")
+  ) {
+    return MULTILINGUAL_CONTENT.casualBengali.howAreYou;
   }
 
   // 0.1 "ki bosta", "ki obostha", "ki obstha", "obostha ki", "ki khobor"
@@ -554,24 +571,22 @@ export function synthesizeAnswer(query: string, sessionLang?: string): string {
     return MULTILINGUAL_CONTENT.languageSwitch.en;
   }
 
-  // 1. Identity / Who is Harun / About
+  // 1. Greetings (TOP PRIORITY - catch "kemon aso", "kemon achen", "hello", "hi", "salam")
   if (
-    clean.includes("who is") ||
-    clean.includes("who are you") ||
-    clean.includes("harun") ||
-    clean.includes("about") ||
-    clean.includes("ke") ||
-    clean.includes("tumi ke") ||
-    clean.includes("apni ke") ||
-    clean.includes("porichoy") ||
-    clean.includes("parichoy") ||
+    /\b(kemon|kemon aso|kemon acho|kemon achen|valo aso|valo achen|bhalo acho|bhalo achen|hi|hello|hey|salam|assalamu|namaste|hola|bonjour|hallo)\b/i.test(
+      clean
+    )
+  ) {
+    return MULTILINGUAL_CONTENT.greeting[lang] || MULTILINGUAL_CONTENT.greeting.bn;
+  }
+
+  // 2. Identity / Who is Harun / About
+  if (
+    /\b(who is|who are you|tumi ke|apni ke|harun ke|about harun|about|porichoy|parichoy|kaun hai|quién es|qui est|wer ist|experience)\b/i.test(
+      clean
+    ) ||
     clean.includes("من هو") ||
-    clean.includes("من انت") ||
-    clean.includes("kaun hai") ||
-    clean.includes("quién es") ||
-    clean.includes("qui est") ||
-    clean.includes("wer ist") ||
-    clean.includes("experience")
+    clean.includes("من انت")
   ) {
     return MULTILINGUAL_CONTENT.about[lang] || MULTILINGUAL_CONTENT.about.bn;
   }
