@@ -396,11 +396,21 @@ export const BLOG_POSTS: BlogPost[] = [
 ];
 
 export function getAllPosts(): BlogPost[] {
+  if (typeof window === "undefined") {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const { getAllMergedPosts } = require("./adminStore");
+      return getAllMergedPosts();
+    } catch {
+      return BLOG_POSTS;
+    }
+  }
   return BLOG_POSTS;
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return BLOG_POSTS.find((p) => p.slug === slug);
+  const posts = getAllPosts();
+  return posts.find((p) => p.slug === slug);
 }
 
 export function getRelatedPosts(currentSlug: string, category?: string, limit = 2): BlogPost[] {

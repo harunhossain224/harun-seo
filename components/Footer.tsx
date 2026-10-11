@@ -64,6 +64,11 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs dark:text-gray-400 text-gray-600">
           <p>© {new Date().getFullYear()} Md. Harun or Roshid — SEO Executive. All Rights Reserved.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/admin" className="hover:text-[#2A835F] transition-colors flex items-center gap-1 text-[11px] opacity-75 hover:opacity-100">
+              <span>Admin Portal</span>
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

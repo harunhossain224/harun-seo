@@ -1,0 +1,24 @@
+[
+  {
+    "id": "lead-1",
+    "name": "Sarah Jenkins",
+    "email": "sarah.j@growthbrand.co",
+    "website": "https://growthbrand.co",
+    "service": "Technical SEO & Audit",
+    "keywords": "ecommerce growth, organic marketing",
+    "message": "We have indexing issues with 400+ product pages. Need a full technical audit.",
+    "status": "New",
+    "createdAt": "2026-10-10 16:45"
+  },
+  {
+    "id": "lead-2",
+    "name": "Ahmed Kabir",
+    "email": "contact@zenithtech.bd",
+    "website": "https://zenithtech.com.bd",
+    "service": "Link Building & Authority",
+    "keywords": "saas software bangladesh, erp solutions",
+    "message": "Looking for high-DA backlinks to improve domain authority for our B2B SaaS platform.",
+    "status": "Contacted",
+    "createdAt": "2026-10-09 11:20"
+  }
+]

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { saveLead } from "@/lib/adminStore";
 
 interface AuditRequestBody {
   name: string;
@@ -249,6 +250,20 @@ export async function POST(request: Request) {
       } catch (tgErr) {
         console.error("Telegram notification failed:", tgErr);
       }
+    }
+
+    // Save lead to local admin store
+    try {
+      saveLead({
+        name,
+        email,
+        website,
+        service: selectedService,
+        keywords: keywords || "",
+        message: message || "",
+      });
+    } catch (saveErr) {
+      console.error("Failed saving lead locally:", saveErr);
     }
 
     // Log the request on the server
