@@ -65,3 +65,36 @@ html.light ::-webkit-scrollbar-thumb {
   background: #2A835F;
   border-radius: 4px;
 }
+
+/* Hide scrollbars for prompt pills & horizontal containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Elegant scrollbar for AI chat message container */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(42, 131, 95, 0.4);
+  border-radius: 9999px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(42, 131, 95, 0.8);
+}
+html.dark .chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(139, 187, 146, 0.35);
+}
+html.dark .chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 187, 146, 0.7);
+}
+
