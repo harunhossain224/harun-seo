@@ -416,9 +416,7 @@ export const MULTILINGUAL_CONTENT = {
     en: `Thank you for your question! As Md. Harun or Roshid's AI SEO Assistant, I can confirm that Harun specializes in solving organic search hurdles, technical ranking roadblocks, and ethical backlink growth for clients worldwide.\n\n` +
       `Harun has 5+ years of experience and has optimized 100+ websites globally (USA, UK, Canada, Australia, UAE, BD).\n\n` +
       `For specific project queries, claim your Free SEO Audit using the form on this page or chat directly with Harun on WhatsApp (${HARUN_PROFILE.whatsapp})!`,
-    bn: `ধন্যবাদ আপনার প্রশ্নের জন্য! মোঃ হারুন অর রশিদের এআই অ্যাসিস্ট্যান্ট হিসেবে জানাচ্ছি যে, আমরা যেকোনো ধরণের টেকনিক্যাল এসইও, গুগল র‍্যাংকিং, ব্যাকলিংক ও ওয়েবসাইট অপ্টিমাইজেশনে সাহায্য করি।\n\n` +
-      `হারুনের ৫+ বছরের অভিজ্ঞতা রয়েছে এবং বিশ্বজুড়ে ১০০+ ওয়েবসাইটে কাজ করেছেন।\n\n` +
-      `আপনার নির্দিষ্ট ওয়েবসাইট নিয়ে সরাসরি কথা বলতে হোয়াটসঅ্যাপে (${HARUN_PROFILE.whatsapp}) মেসেজ পাঠাতে পারেন অথবা ফ্রি অডিট ফর্মটি পূরণ করতে পারেন!`,
+    bn: `হ্যাঁ ভাই, বলুন কীভাবে সাহায্য করতে পারি? 😊 আমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট।\n\nআপনার ওয়েবসাইট র‍্যাংকিং, টেকনিক্যাল অডিট, ব্যাকলিংক বা যেকোনো এসইও বিষয় নিয়ে নির্দ্বিধায় জিজ্ঞেস করতে পারেন! সরাসরি হারুনের সাথে কথা বলতে চাইলে হোয়াটসঅ্যাপেও (${HARUN_PROFILE.whatsapp}) নক দিতে পারেন।`,
     ar: `شكراً لسؤالك! بصفتي المساعد الذكي لمحمد هارون الرشيد، أؤكد لك أن هارون متخصص في حل جميع تحديات السيو وتصدر نتائج البحث في جوجل للعملاء حول العالم.\n\n` +
       `يمتلك هارون أكثر من 5 سنوات من الخبرة وقام بتحسين أكثر من 100 موقع في أمريكا وأوروبا والخليج.\n\n` +
       `لمناقشة تفاصيل مشروعك أو الحصول على تدقيق مجاني، تواصل مباشرة مع هارون عبر واتساب (${HARUN_PROFILE.whatsapp})!`,
@@ -434,6 +432,15 @@ export const MULTILINGUAL_CONTENT = {
     de: `Vielen Dank für Ihre Frage! Als KI-Assistent von Md. Harun or Roshid helfe ich Ihnen gerne bei technischem SEO, Backlinks und Google-Rankings.\n\n` +
       `Harun verfügt über 5+ Jahre Erfahrung und hat über 100 Websites weltweit optimiert.\n\n` +
       `Schreiben Sie Harun direkt auf WhatsApp (${HARUN_PROFILE.whatsapp}) für ein persönliches Gespräch!`,
+  },
+
+  // 9. Casual Bengali Greetings & Everyday Chat
+  casualBengali: {
+    status: `আলহামদুলিল্লাহ ভাই, সব ভালো! আপনার কি অবস্থা? 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইট বা প্রজেক্ট কেমন চলছে? কোনো টেকনিক্যাল অডিট বা গুগল র‍্যাংকিং নিয়ে সাহায্য লাগবে?`,
+    doing: `এইতো ভাই, ক্লায়েন্টদের ওয়েবসাইটের এসইও, টেকনিক্যাল অডিট আর গুগল র‍্যাংকিং নিয়ে কাজ করছি! 😊 আপনি কেমন আছেন? আপনার ওয়েবসাইটের জন্য কি কোনো পরামর্শ লাগবে?`,
+    hey: `আরে ভাই! কি অবস্থা? কেমন আছেন? 👋\n\nআমি হারুনের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইটের কাজ কেমন চলছে? কোনো সার্ভিস বা ফ্রি অডিট নিয়ে আলোচনা করতে চান?`,
+    fix: `হ্যাঁ ভাই, কোনো অসুবিধা হলে আমাকে বলুন, আমি ঠিক উত্তর দেওয়ার চেষ্টা করছি! 😊 হারুনের এসইও সার্ভিস, ফ্রি অডিট, ব্যাকলিংক বা প্রাইসিং নিয়ে যেকোনো প্রশ্ন করতে পারেন, কিংবা সরাসরি হারুনের হোয়াটসঅ্যাপেও (${HARUN_PROFILE.whatsapp}) মেসেজ দিতে পারেন!`,
+    thanks: `আপনাকে অসংখ্য ধন্যবাদ ভাই! 😊 যেকোনো সময় কোনো সাহায্য লাগলে নক করবেন। শুভকামনা!`,
   },
 };
 
@@ -463,6 +470,53 @@ export function synthesizeAnswer(query: string, sessionLang?: string): string {
 
   if (clean.includes("banglish") || clean.includes("বাংলিশ")) {
     return MULTILINGUAL_CONTENT.languageSwitch.banglish;
+  }
+
+  // 0.1 "ki bosta", "ki obostha", "ki obstha", "obostha ki", "ki khobor"
+  if (
+    clean.includes("bosta") ||
+    clean.includes("obostha") ||
+    clean.includes("obstha") ||
+    clean.includes("obosta") ||
+    clean.includes("ki khobor") ||
+    clean.includes("khobor ki") ||
+    clean.includes("kemon cholte") ||
+    clean.includes("kemon choltase") ||
+    clean.includes("kemon cholche")
+  ) {
+    return MULTILINGUAL_CONTENT.casualBengali.status;
+  }
+
+  // 0.2 "ki koro", "ki korcho", "ki koren", "ki koros"
+  if (
+    clean.includes("ki koro") ||
+    clean.includes("ki korcho") ||
+    clean.includes("ki koren") ||
+    clean.includes("ki koros")
+  ) {
+    return MULTILINGUAL_CONTENT.casualBengali.doing;
+  }
+
+  // 0.3 "kire", "kire mama", "bhai", "vai"
+  if (
+    clean === "kire" ||
+    clean === "kire mama" ||
+    clean.startsWith("kire ") ||
+    clean === "bhai" ||
+    clean === "vai" ||
+    clean === "bro"
+  ) {
+    return MULTILINGUAL_CONTENT.casualBengali.hey;
+  }
+
+  // 0.4 "thik koro", "thik koro na", "somossa"
+  if (
+    clean.includes("thik koro") ||
+    clean.includes("thik kore") ||
+    clean.includes("somossa") ||
+    clean.includes("somossha")
+  ) {
+    return MULTILINGUAL_CONTENT.casualBengali.fix;
   }
 
   if (clean.includes("hindi bolo") || clean.includes("हिंदी बोलो") || clean === "hindi") {
