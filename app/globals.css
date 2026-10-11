@@ -98,3 +98,11 @@ html.dark .chat-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(139, 187, 146, 0.7);
 }
 
+.chat-scroll-area {
+  overflow-y: scroll !important;
+  overscroll-behavior: contain !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
+}
+
+

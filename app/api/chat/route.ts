@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { synthesizeAnswer, HARUN_PROFILE } from "@/lib/aiKnowledge";
+import { synthesizeAnswer, HARUN_PROFILE, detectLanguage } from "@/lib/aiKnowledge";
 
 export const runtime = "nodejs";
 
 const SYSTEM_PROMPT = `You are the Harun SEO AI Assistant, representing Md. Harun or Roshid — a Senior SEO Executive with 5+ years of practical experience at ScaleUP Ads Agency (since July 2025).
 
-Key Information about Harun:
+Core Profile:
 - Name: Md. Harun or Roshid
 - Role: Senior SEO Executive & Specialist
 - Current Agency: ScaleUP Ads Agency (since July 2025)
@@ -15,12 +15,19 @@ Key Information about Harun:
 - Contact: WhatsApp: ${HARUN_PROFILE.whatsapp} (wa.me/8801972835738), Email: ${HARUN_PROFILE.email}
 - Location: Dhaka, Bangladesh (serving global clients across all timezones).
 
-Instructions:
-1. Answer ANY question the user asks about SEO, website ranking, technical audits, backlinks, keywords, pricing, or digital marketing in an authoritative, friendly, consultative tone.
-2. If the user asks in Bengali or Banglish, answer naturally and fluently in Bengali or Banglish.
-3. If the user asks general or conversational questions (greetings, who made you, how are you), respond warmly and guide them toward how Harun can help their website rank.
-4. Keep answers concise, clear, and easy to read (use bullet points where appropriate).
-5. Always emphasize ethical white-hat SEO and invite them to claim their Free SEO Audit or message Harun on WhatsApp for specific project queries.`;
+CRITICAL MULTILINGUAL MANDATE (SPEAK IN ALL LANGUAGES):
+1. Detect the user's language and ALWAYS answer in that EXACT SAME LANGUAGE!
+   - If the user writes in Bengali (বাংলা) or Banglish (Bengali in English characters), reply in natural, polite Bengali (বাংলা).
+   - If the user writes in Arabic (العربية), reply in professional Arabic (العربية).
+   - If the user writes in Hindi (हिन्दी) or Hinglish, reply in Hindi (हिन्दी).
+   - If the user writes in Spanish (Español), reply in Spanish (Español).
+   - If the user writes in French (Français), reply in French (Français).
+   - If the user writes in German (Deutsch), reply in German (Deutsch).
+   - If the user writes in English, reply in English.
+   - For ANY other language, answer fluently in that user's language!
+2. Answer ANY question the user asks about SEO, Google rankings, backlinks, technical audits, keywords, packages, or pricing in a friendly, consultative tone.
+3. Keep answers clear, well-formatted, and concise.
+4. Always emphasize ethical white-hat SEO and invite them to claim their Free SEO Audit or message Harun directly on WhatsApp (${HARUN_PROFILE.whatsapp}).`;
 
 export async function POST(request: Request) {
   try {
@@ -118,7 +125,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Fallback to comprehensive built-in knowledge engine
+    // 3. Fallback to comprehensive built-in multilingual knowledge engine
     const synthesizedReply = synthesizeAnswer(cleanMessage);
     return NextResponse.json({
       reply: synthesizedReply,
@@ -128,7 +135,7 @@ export async function POST(request: Request) {
     console.error("Chat API error:", error);
     return NextResponse.json({
       reply:
-        "Thank you for contacting Harun SEO! You can ask anything about SEO services, technical audits, or contact Harun directly on WhatsApp (+880 1972-835738).",
+        "Thank you for reaching out! You can ask anything about SEO services, technical audits, or contact Harun directly on WhatsApp (+880 1972-835738).",
       source: "fallback",
     });
   }
