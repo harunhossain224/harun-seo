@@ -12,7 +12,7 @@ import {
   ChevronDown,
   Globe,
 } from "lucide-react";
-import { synthesizeAnswer, HARUN_PROFILE } from "@/lib/aiKnowledge";
+import { synthesizeAnswer, HARUN_PROFILE, detectLanguage } from "@/lib/aiKnowledge";
 
 interface ChatMessage {
   id: string;
@@ -26,6 +26,7 @@ export default function AIChatWidget() {
   const [inputText, setInputText] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [isScrolledUp, setIsScrolledUp] = useState(false);
+  const [sessionLang, setSessionLang] = useState<string>("bn");
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "welcome",
@@ -88,6 +89,9 @@ export default function AIChatWidget() {
     const text = (textToSend || inputText).trim();
     if (!text || isTyping) return;
 
+    const detected = detectLanguage(text, sessionLang);
+    setSessionLang(detected);
+
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       sender: "user",
@@ -109,18 +113,21 @@ export default function AIChatWidget() {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ message: text, sessionLang: detected }),
       });
 
       let botReplyText = "";
       if (response.ok) {
         const data = await response.json();
         botReplyText = data?.reply;
+        if (data?.detectedLang) {
+          setSessionLang(data.detectedLang);
+        }
       }
 
       // If API didn't return a reply, fallback to built-in multilingual synthesizer
       if (!botReplyText) {
-        botReplyText = synthesizeAnswer(text);
+        botReplyText = synthesizeAnswer(text, detected);
       }
 
       // Natural conversational pacing
@@ -137,7 +144,7 @@ export default function AIChatWidget() {
       ]);
     } catch {
       // Offline / Network fallback to built-in multilingual engine
-      const botReplyText = synthesizeAnswer(text);
+      const botReplyText = synthesizeAnswer(text, detected);
       setMessages((prev) => [
         ...prev,
         {
@@ -351,7 +358,15 @@ export default function AIChatWidget() {
           >
             <input
               type="text"
-              placeholder="Ask anything in English, বাংলা, العربية, हिन्दी..."
+              placeholder={
+                sessionLang === "bn"
+                  ? "বাংলা বা বাংলিশে যেকোনো প্রশ্ন করুন..."
+                  : sessionLang === "ar"
+                  ? "اسأل أي شيء باللغة العربية..."
+                  : sessionLang === "hi"
+                  ? "हिंदी में कुछ भी पूछें..."
+                  : "Ask anything in English, বাংলা, العربية..."
+              }
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               className="flex-1 dark:bg-[#12544F]/40 bg-gray-100 dark:text-white text-gray-800 text-xs sm:text-sm rounded-xl px-3.5 py-2.5 focus:outline-none focus:ring-1 focus:ring-[#2A835F] border dark:border-white/10 border-gray-200"

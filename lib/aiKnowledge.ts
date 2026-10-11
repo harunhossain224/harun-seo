@@ -16,76 +16,136 @@ export const HARUN_PROFILE = {
 
 export type SupportedLang = "bn" | "ar" | "hi" | "es" | "fr" | "de" | "en";
 
-export function detectLanguage(text: string): SupportedLang {
+// Comprehensive language detector for all scripts and Banglish / Hinglish phonetics
+export function detectLanguage(text: string, currentSessionLang?: string): SupportedLang {
   const clean = text.trim();
+  if (!clean) return (currentSessionLang as SupportedLang) || "en";
 
-  // Arabic script (العربية)
-  if (/[\u0600-\u06FF]/.test(clean)) {
+  // Explicit Language Switch requests
+  const lower = clean.toLowerCase();
+  if (
+    lower.includes("bangla") ||
+    lower.includes("bengali") ||
+    lower.includes("banglish") ||
+    lower.includes("বাংলা") ||
+    lower.includes("বাংলিশ")
+  ) {
+    return "bn";
+  }
+  if (
+    lower.includes("hindi") ||
+    lower.includes("hinglish") ||
+    lower.includes("हिंदी") ||
+    lower.includes("हिन्दी")
+  ) {
+    return "hi";
+  }
+  if (
+    lower.includes("arabic") ||
+    lower.includes("arabi") ||
+    lower.includes("arbi") ||
+    lower.includes("عربي") ||
+    lower.includes("عربية")
+  ) {
     return "ar";
   }
+  if (lower.includes("spanish") || lower.includes("español") || lower.includes("espanol")) {
+    return "es";
+  }
+  if (lower.includes("french") || lower.includes("français") || lower.includes("francais")) {
+    return "fr";
+  }
+  if (lower.includes("german") || lower.includes("deutsch")) {
+    return "de";
+  }
+  if (lower.includes("speak english") || lower.includes("english bolo") || lower.includes("talk in english")) {
+    return "en";
+  }
 
-  // Bengali script (বাংলা)
+  // 1. Bengali Script (বাংলা)
   if (/[\u0980-\u09FF]/.test(clean)) {
     return "bn";
   }
 
-  // Hindi / Devanagari script (हिन्दी)
+  // 2. Arabic Script (العربية)
+  if (/[\u0600-\u06FF]/.test(clean)) {
+    return "ar";
+  }
+
+  // 3. Hindi / Devanagari Script (हिन्दी)
   if (/[\u0900-\u097F]/.test(clean)) {
     return "hi";
   }
 
-  const lower = clean.toLowerCase();
-
-  // Banglish (Bengali phonetics in English letters)
-  if (
-    /\b(ki|kivabe|kemon|apnar|amar|koto|taka|kaj|korbo|achen|acho|koro|bolun|janan|bhalo|valo|dhonnobad|shuru|parben|hobe)\b/i.test(
+  // 4. Comprehensive Banglish Pattern (Bengali written in English letters)
+  const isBanglish =
+    /\b(bangla|bolo|bolen|bolte|boltecho|bolso|bollam|kotha|katha|basha|vasha|ki|kivabe|kemon|apnar|amar|amader|apnader|tumi|apni|tui|koto|taka|kaj|kam|korbo|korben|korbe|koren|koros|kore|kori|achen|acho|koro|bolun|janan|bhalo|valo|dhonnobad|shuru|parben|parbe|paro|hobe|ore|pore|shob|sob|kisu|kichu|jeno|chai|dekho|dekhso|dekso|bujhso|bujso|vai|bhai|keno|bolci|bolsi|ekhon|akhon|jani|jano|lagbe|lagbo|ashbe|ashbo|khobor|khub|ekta|duto|korte|parbo|hoyeche|hoise|somosh|somossha|thik|daw|dao|shei|shobai|sobai|jigash|jiges|jigges|jante|paro|parben)\b/i.test(
       lower
-    )
-  ) {
+    );
+
+  if (isBanglish) {
     return "bn";
   }
 
-  // Hinglish (Hindi phonetics in English letters)
-  if (
-    /\b(kaise|karo|kitna|paisa|karna|hai|aap|mera|meri|batao|shukriya|namaste|kripya)\b/i.test(
+  // 5. Hinglish Pattern
+  const isHinglish =
+    /\b(kaise|karo|kitna|paisa|karna|hai|aap|mera|meri|batao|shukriya|namaste|kripya|kya|bhai|karein|kariye)\b/i.test(
       lower
-    )
-  ) {
+    );
+
+  if (isHinglish) {
     return "hi";
   }
 
-  // Spanish (Español)
+  // 6. Spanish Keywords
   if (
-    /\b(hola|cómo|como|cuánto|cuanto|servicios|servicio|gratis|precio|auditoría|auditoria|posicionamiento)\b/i.test(
+    /\b(hola|cómo|como|cuánto|cuanto|servicios|servicio|gratis|precio|auditoría|auditoria|posicionamiento|puedes|hablar)\b/i.test(
       lower
     )
   ) {
     return "es";
   }
 
-  // French (Français)
+  // 7. French Keywords
   if (
-    /\b(bonjour|salut|comment|combien|services|service|gratuit|prix|référencement|referencement)\b/i.test(
+    /\b(bonjour|salut|comment|combien|services|service|gratuit|prix|référencement|referencement|pouvez)\b/i.test(
       lower
     )
   ) {
     return "fr";
   }
 
-  // German (Deutsch)
+  // 8. German Keywords
   if (
-    /\b(hallo|guten|wie|wieviel|kosten|preis|kostenlos|optimierung|webseite)\b/i.test(
+    /\b(hallo|guten|wie|wieviel|kosten|preis|kostenlos|optimierung|webseite|können)\b/i.test(
       lower
     )
   ) {
     return "de";
   }
 
-  return "en";
+  // If user previously switched to Bangla in this session, keep replying in Bangla!
+  if (currentSessionLang === "bn") {
+    return "bn";
+  }
+
+  return (currentSessionLang as SupportedLang) || "en";
 }
 
 // Multilingual topic responses
 export const MULTILINGUAL_CONTENT = {
+  // Language Switch & Confirmation
+  languageSwitch: {
+    bn: `হ্যাঁ, আমি অবশ্যই বাংলায় কথা বলতে পারি! 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। হারুনের ৫+ বছরের অভিজ্ঞতা, টেকনিক্যাল এসইও, ব্যাকলিংক, সার্ভিস প্যাকেজ, প্রাইসিং বা ফ্রি অডিট নিয়ে যেকোনো প্রশ্ন বাংলায় করতে পারেন — আমি বাংলায় উত্তর দিতে প্রস্তুত!`,
+    banglish: `হ্যাঁ ভাই, আমি বাংলিশ (Banglish) এবং বাংলা দুটোই বুঝতে ও কথা বলতে পারি! 😊\n\nHarun-এর SEO services, packages, pricing, Google ranking, technical audit ba backlink niye apnar ja proshno ache shob bolte paren!`,
+    ar: `نعم، بالتأكيد يمكنني التحدث باللغة العربية بطلاقة! 😊\n\nأنا المساعد الذكي لمحمد هارون الرشيد، خبير تحسين محركات البحث (SEO). يمكنك سؤالي عن خدمات السيو، تدقيق الموقع، والأسعار بالعربية!`,
+    hi: `हाँ, मैं हिन्दी में बात कर सकता हूँ! 😊\n\nमैं मोहम्मद हारून और राशिद का AI SEO सहायक हूँ। आप वेबसाइट रैंकिंग, टेक्निकल एसईओ, पैकेज या मुफ़्त ऑडिट के बारे में कुछ भी पूछ सकते हैं!`,
+    es: `¡Sí, por supuesto que puedo hablar en español! 😊\n\nSoy el asistente de IA de Md. Harun or Roshid. ¡Puedes hacerme cualquier pregunta sobre servicios de SEO, auditorías gratuitas y posicionamiento en Google en español!`,
+    fr: `Oui, je peux tout à fait parler en français! 😊\n\nJe suis l'assistant IA de Md. Harun or Roshid. Posez-moi toutes vos questions sur le référencement naturel et nos services SEO en français!`,
+    de: `Ja, natürlich kann ich Deutsch sprechen! 😊\n\nIch bin der KI-Assistent von Md. Harun or Roshid. Fragen Sie mich gerne alles über SEO-Dienstleistungen und Google-Rankings auf Deutsch!`,
+    en: `Sure! I can communicate in English fluently. Feel free to ask me anything about Md. Harun or Roshid's SEO services, pricing, or request a free manual audit!`,
+  },
+
   // 1. Identity & About Harun
   about: {
     en: `Md. Harun or Roshid is a Senior SEO Executive with 5+ years of practical search engine optimization experience.\n\n` +
@@ -378,14 +438,44 @@ export const MULTILINGUAL_CONTENT = {
 };
 
 // Universal multilingual answer synthesizer
-export function synthesizeAnswer(query: string): string {
+export function synthesizeAnswer(query: string, sessionLang?: string): string {
   const clean = query.trim().toLowerCase();
 
   if (!clean) {
     return MULTILINGUAL_CONTENT.greeting.en;
   }
 
-  const lang = detectLanguage(query);
+  const lang = detectLanguage(query, sessionLang);
+
+  // 0. Language Request / "bangla bolo" / "banglish"
+  if (
+    clean.includes("bangla bolo") ||
+    clean.includes("banglay bolo") ||
+    clean.includes("bangla bolte") ||
+    clean.includes("bangla jano") ||
+    clean.includes("বাংলা বলো") ||
+    clean.includes("বাংলায় বলো") ||
+    clean === "bangla" ||
+    clean === "বাংলা"
+  ) {
+    return MULTILINGUAL_CONTENT.languageSwitch.bn;
+  }
+
+  if (clean.includes("banglish") || clean.includes("বাংলিশ")) {
+    return MULTILINGUAL_CONTENT.languageSwitch.banglish;
+  }
+
+  if (clean.includes("hindi bolo") || clean.includes("हिंदी बोलो") || clean === "hindi") {
+    return MULTILINGUAL_CONTENT.languageSwitch.hi;
+  }
+
+  if (clean.includes("arabic bolo") || clean.includes("تكلم عربي") || clean === "arabic") {
+    return MULTILINGUAL_CONTENT.languageSwitch.ar;
+  }
+
+  if (clean.includes("speak english") || clean.includes("english bolo") || clean === "english") {
+    return MULTILINGUAL_CONTENT.languageSwitch.en;
+  }
 
   // 1. Identity / Who is Harun / About
   if (
@@ -396,6 +486,8 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("ke") ||
     clean.includes("tumi ke") ||
     clean.includes("apni ke") ||
+    clean.includes("porichoy") ||
+    clean.includes("parichoy") ||
     clean.includes("من هو") ||
     clean.includes("من انت") ||
     clean.includes("kaun hai") ||
@@ -404,7 +496,7 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("wer ist") ||
     clean.includes("experience")
   ) {
-    return MULTILINGUAL_CONTENT.about[lang] || MULTILINGUAL_CONTENT.about.en;
+    return MULTILINGUAL_CONTENT.about[lang] || MULTILINGUAL_CONTENT.about.bn;
   }
 
   // 2. Services
@@ -415,6 +507,7 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("offer") ||
     clean.includes("kaj") ||
     clean.includes("ki kaj") ||
+    clean.includes("services ki") ||
     clean.includes("خدمات") ||
     clean.includes("خدمة") ||
     clean.includes("seva") ||
@@ -423,7 +516,7 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("technical seo") ||
     clean.includes("backlink")
   ) {
-    return MULTILINGUAL_CONTENT.services[lang] || MULTILINGUAL_CONTENT.services.en;
+    return MULTILINGUAL_CONTENT.services[lang] || MULTILINGUAL_CONTENT.services.bn;
   }
 
   // 3. Free SEO Audit
@@ -439,7 +532,7 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("auditoría") ||
     clean.includes("auditoria")
   ) {
-    return MULTILINGUAL_CONTENT.audit[lang] || MULTILINGUAL_CONTENT.audit.en;
+    return MULTILINGUAL_CONTENT.audit[lang] || MULTILINGUAL_CONTENT.audit.bn;
   }
 
   // 4. Pricing / Cost / Packages
@@ -453,6 +546,9 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("taka") ||
     clean.includes("dollar") ||
     clean.includes("package") ||
+    clean.includes("koto taka") ||
+    clean.includes("fee koto") ||
+    clean.includes("কম") ||
     clean.includes("كم السعر") ||
     clean.includes("تكلفة") ||
     clean.includes("कीमत") ||
@@ -461,7 +557,7 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("tarif") ||
     clean.includes("preis")
   ) {
-    return MULTILINGUAL_CONTENT.pricing[lang] || MULTILINGUAL_CONTENT.pricing.en;
+    return MULTILINGUAL_CONTENT.pricing[lang] || MULTILINGUAL_CONTENT.pricing.bn;
   }
 
   // 5. Contact / WhatsApp / Phone / Email
@@ -473,13 +569,14 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("hire") ||
     clean.includes("jogajog") ||
     clean.includes("number") ||
+    clean.includes("nombor") ||
     clean.includes("تواصل") ||
     clean.includes("واتساب") ||
     clean.includes("رقم") ||
     clean.includes("संपर्क") ||
     clean.includes("contacto")
   ) {
-    return MULTILINGUAL_CONTENT.contact[lang] || MULTILINGUAL_CONTENT.contact.en;
+    return MULTILINGUAL_CONTENT.contact[lang] || MULTILINGUAL_CONTENT.contact.bn;
   }
 
   // 6. Time / Duration / How Long
@@ -489,12 +586,14 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("duration") ||
     clean.includes("koto din") ||
     clean.includes("ranking time") ||
+    clean.includes("koto shomoy") ||
+    clean.includes("shomoy lagbe") ||
     clean.includes("كم يستغرق") ||
     clean.includes("وقت") ||
     clean.includes("कितना समय") ||
     clean.includes("cuánto tiempo")
   ) {
-    return MULTILINGUAL_CONTENT.timeline[lang] || MULTILINGUAL_CONTENT.timeline.en;
+    return MULTILINGUAL_CONTENT.timeline[lang] || MULTILINGUAL_CONTENT.timeline.bn;
   }
 
   // 7. Greetings
@@ -505,6 +604,9 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("kemon") ||
     clean.includes("salam") ||
     clean.includes("assalamu") ||
+    clean.includes("kire") ||
+    clean.includes("valo") ||
+    clean.includes("bhalo") ||
     clean.includes("مرحبا") ||
     clean.includes("سلام") ||
     clean.includes("namaste") ||
@@ -512,9 +614,9 @@ export function synthesizeAnswer(query: string): string {
     clean.includes("bonjour") ||
     clean.includes("hallo")
   ) {
-    return MULTILINGUAL_CONTENT.greeting[lang] || MULTILINGUAL_CONTENT.greeting.en;
+    return MULTILINGUAL_CONTENT.greeting[lang] || MULTILINGUAL_CONTENT.greeting.bn;
   }
 
   // Fallback in detected language
-  return MULTILINGUAL_CONTENT.fallback[lang] || MULTILINGUAL_CONTENT.fallback.en;
+  return MULTILINGUAL_CONTENT.fallback[lang] || (lang === "bn" ? MULTILINGUAL_CONTENT.fallback.bn : MULTILINGUAL_CONTENT.fallback.en);
 }
