@@ -89,7 +89,7 @@ export default function AIChatWidget() {
     const text = (textToSend || inputText).trim();
     if (!text || isTyping) return;
 
-    const detected = detectLanguage(text, sessionLang);
+    const detected = detectLanguage(text);
     setSessionLang(detected);
 
     const userMessage: ChatMessage = {

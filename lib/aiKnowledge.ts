@@ -79,7 +79,7 @@ export function detectLanguage(text: string, currentSessionLang?: string): Suppo
 
   // 4. Comprehensive Banglish Pattern (Bengali written in English letters)
   const isBanglish =
-    /\b(bangla|bolo|bolen|bolte|boltecho|bolso|bollam|kotha|katha|basha|vasha|ki|kivabe|kemon|apnar|amar|amader|apnader|tumi|apni|tui|koto|taka|kaj|kam|korbo|korben|korbe|koren|koros|kore|kori|achen|acho|koro|bolun|janan|bhalo|valo|dhonnobad|shuru|parben|parbe|paro|hobe|ore|pore|shob|sob|kisu|kichu|jeno|chai|dekho|dekhso|dekso|bujhso|bujso|vai|bhai|keno|bolci|bolsi|ekhon|akhon|jani|jano|lagbe|lagbo|ashbe|ashbo|khobor|khub|ekta|duto|korte|parbo|hoyeche|hoise|somosh|somossha|thik|daw|dao|shei|shobai|sobai|jigash|jiges|jigges|jante|paro|parben)\b/i.test(
+    /\b(bangla|bolo|bolen|bolte|boltecho|bolso|bollam|kotha|katha|basha|vasha|ki|kivabe|kemon|apnar|amar|amader|apnader|tumi|apni|tui|koto|taka|kaj|kam|korbo|korben|korbe|koren|koros|kore|kori|achen|acho|koro|bolun|janan|bhalo|valo|dhonnobad|shuru|parben|parbe|paro|hobe|ore|pore|shob|sob|kisu|kichu|jeno|chai|dekho|dekhso|dekso|bujhso|bujso|vai|bhai|keno|bolci|bolsi|ekhon|akhon|jani|jano|lagbe|lagbo|ashbe|ashbo|khobor|khub|ekta|duto|korte|parbo|hoyeche|hoise|somosh|somossha|thik|daw|dao|shei|shobai|sobai|jigash|jiges|jigges|jante|paro|parben|bosta|obostha|obstha|obosta|bolmu|bolba|bolbo)\b/i.test(
       lower
     );
 
@@ -99,7 +99,7 @@ export function detectLanguage(text: string, currentSessionLang?: string): Suppo
 
   // 6. Spanish Keywords
   if (
-    /\b(hola|cómo|como|cuánto|cuanto|servicios|servicio|gratis|precio|auditoría|auditoria|posicionamiento|puedes|hablar)\b/i.test(
+    /\b(hola|cómo|como|cuánto|cuanto|servicios|servicio|gratis|precio|auditoría|auditoria|posicionamiento|puedes|hablar|ayuda|ayúdame)\b/i.test(
       lower
     )
   ) {
@@ -108,7 +108,7 @@ export function detectLanguage(text: string, currentSessionLang?: string): Suppo
 
   // 7. French Keywords
   if (
-    /\b(bonjour|salut|comment|combien|services|service|gratuit|prix|référencement|referencement|pouvez)\b/i.test(
+    /\b(bonjour|salut|comment|combien|services|service|gratuit|prix|référencement|referencement|pouvez|aide|aidez)\b/i.test(
       lower
     )
   ) {
@@ -117,19 +117,15 @@ export function detectLanguage(text: string, currentSessionLang?: string): Suppo
 
   // 8. German Keywords
   if (
-    /\b(hallo|guten|wie|wieviel|kosten|preis|kostenlos|optimierung|webseite|können)\b/i.test(
+    /\b(hallo|guten|wie|wieviel|kosten|preis|kostenlos|optimierung|webseite|können|hilfe|helfen)\b/i.test(
       lower
     )
   ) {
     return "de";
   }
 
-  // If user previously switched to Bangla in this session, keep replying in Bangla!
-  if (currentSessionLang === "bn") {
-    return "bn";
-  }
-
-  return (currentSessionLang as SupportedLang) || "en";
+  // Default to English for all standard Latin words (e.g. "halp me", "help me", "who are you")
+  return "en";
 }
 
 // Multilingual topic responses
@@ -434,7 +430,18 @@ export const MULTILINGUAL_CONTENT = {
       `Schreiben Sie Harun direkt auf WhatsApp (${HARUN_PROFILE.whatsapp}) für ein persönliches Gespräch!`,
   },
 
-  // 9. Casual Bengali Greetings & Everyday Chat
+  // 9. Help & Assistance
+  help: {
+    en: `Hello! How can I help you today? 😊\n\nI am Md. Harun or Roshid's AI SEO Assistant. Ask me anything about:\n• Technical SEO diagnostics & indexing fixes\n• Manual white-hat backlink building\n• Getting a 100% Free SEO Audit for your site\n• SEO Pricing & monthly retainers\n• Or message Harun directly on WhatsApp (${HARUN_PROFILE.whatsapp})!`,
+    bn: `হ্যালো! কীভাবে সাহায্য করতে পারি বলুন? 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। হারুনের ৫+ বছরের এসইও অভিজ্ঞতা রয়েছে। আপনার ওয়েবসাইট র‍্যাংকিং, টেকনিক্যাল অডিট, ব্যাকলিংক বা যেকোনো বিষয় নিয়ে প্রশ্ন করতে পারেন!`,
+    ar: `مرحباً بك! كيف يمكنني مساعدتك اليوم؟ 😊\n\nأنا المساعد الذكي لمحمد هارون الرشيد، خبير تحسين محركات البحث. يمكنك سؤالي عن خدمات السيو، تدقيق الموقع، والأسعار!`,
+    hi: `नमस्ते! मैं आपकी किस प्रकार मदद कर सकता हूँ? 😊\n\nमैं मोहम्मद हारून और राशिद का AI SEO सहायक हूँ। आप वेबसाइट रैंकिंग, टेक्निकल এসইও या मुफ़्त ऑडिट के बारे में कुछ भी पूछ सकते हैं!`,
+    es: `¡Hola! ¿Cómo puedo ayudarte hoy? 😊\n\nSoy el asistente de IA de Md. Harun or Roshid. Pregúntame sobre servicios de SEO, auditoría gratuita o posicionamiento en Google.`,
+    fr: `Bonjour! Comment puis-je vous aider aujourd'hui? 😊\n\nJe suis l'assistant IA de Md. Harun or Roshid. Posez-moi toutes vos questions sur le référencement et l'audit gratuit!`,
+    de: `Hallo! Wie kann ich Ihnen heute helfen? 😊\n\nIch bin der KI-Assistent von Md. Harun or Roshid. Fragen Sie mich gerne nach SEO-Dienstleistungen oder einem kostenlosen Audit!`,
+  },
+
+  // 10. Casual Bengali Greetings & Everyday Chat
   casualBengali: {
     status: `আলহামদুলিল্লাহ ভাই, সব ভালো! আপনার কি অবস্থা? 😊\n\nআমি মোঃ হারুন অর রশিদের এআই এসইও অ্যাসিস্ট্যান্ট। আপনার ওয়েবসাইট বা প্রজেক্ট কেমন চলছে? কোনো টেকনিক্যাল অডিট বা গুগল র‍্যাংকিং নিয়ে সাহায্য লাগবে?`,
     doing: `এইতো ভাই, ক্লায়েন্টদের ওয়েবসাইটের এসইও, টেকনিক্যাল অডিট আর গুগল র‍্যাংকিং নিয়ে কাজ করছি! 😊 আপনি কেমন আছেন? আপনার ওয়েবসাইটের জন্য কি কোনো পরামর্শ লাগবে?`,
@@ -517,6 +524,22 @@ export function synthesizeAnswer(query: string, sessionLang?: string): string {
     clean.includes("somossha")
   ) {
     return MULTILINGUAL_CONTENT.casualBengali.fix;
+  }
+
+  // 0.5 "help", "halp", "help me", "can you help me", "sahajjo"
+  if (
+    clean.includes("help") ||
+    clean.includes("halp") ||
+    clean.includes("sahajjo") ||
+    clean.includes("সাহায্য") ||
+    clean.includes("مساعدة") ||
+    clean.includes("ساعدني") ||
+    clean.includes("मदद") ||
+    clean.includes("ayuda") ||
+    clean.includes("aide") ||
+    clean.includes("hilfe")
+  ) {
+    return MULTILINGUAL_CONTENT.help[lang] || MULTILINGUAL_CONTENT.help.en;
   }
 
   if (clean.includes("hindi bolo") || clean.includes("हिंदी बोलो") || clean === "hindi") {

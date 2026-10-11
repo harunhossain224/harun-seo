@@ -42,7 +42,7 @@ export async function POST(request: Request) {
     }
 
     const cleanMessage = message.trim();
-    const detectedLang = detectLanguage(cleanMessage, sessionLang);
+    const detectedLang = detectLanguage(cleanMessage);
 
     // 1. Check for Google Gemini API Key
     const geminiKey = process.env.GEMINI_API_KEY;
@@ -129,7 +129,7 @@ export async function POST(request: Request) {
     }
 
     // 3. Fallback to comprehensive built-in multilingual knowledge engine
-    const synthesizedReply = synthesizeAnswer(cleanMessage, sessionLang);
+    const synthesizedReply = synthesizeAnswer(cleanMessage);
     return NextResponse.json({
       reply: synthesizedReply,
       detectedLang,
