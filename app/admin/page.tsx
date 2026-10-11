@@ -136,7 +136,7 @@ export default function AdminPage() {
         localStorage.setItem("harun_admin_logged_in", "true");
         showNotification("Welcome back, Md. Harun or Roshid!");
       } else {
-        setAuthError(data.error || "Incorrect password. Default is harun7835");
+        setAuthError(data.error || "Incorrect admin passcode. Please try again.");
       }
     } catch {
       setAuthError("Failed to connect to authentication service.");
@@ -402,16 +402,6 @@ export default function AdminPage() {
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
-                <p className="text-[11px] text-gray-400 mt-2 flex items-center justify-between">
-                  <span>Default Passcode: <strong className="text-[#8BBB92]">harun7835</strong></span>
-                  <button
-                    type="button"
-                    onClick={() => setPassword("harun7835")}
-                    className="text-[#2A835F] hover:underline"
-                  >
-                    Auto-fill
-                  </button>
-                </p>
               </div>
 
               <button
