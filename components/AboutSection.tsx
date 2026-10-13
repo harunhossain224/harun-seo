@@ -49,8 +49,8 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                 <Image
                   src="/harun-seo.png"
-                  alt="Harun SEO - Md Harun or Roshid SEO Specialist & Executive"
-                  title="Harun SEO (Md Harun or Roshid) - Senior SEO Specialist"
+                  alt="Harun SEO - Md Harun or Roshid (Harun Sha) SEO Specialist & Executive"
+                  title="Harun SEO | Md Harun or Roshid (Harun Sha) - Senior SEO Specialist"
                   width={500}
                   height={650}
                   priority
@@ -94,7 +94,7 @@ export default function AboutSection() {
               </h3>
               <div className="space-y-4 dark:text-gray-300 text-gray-700 leading-relaxed text-sm sm:text-base">
                 <p>
-                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong>, an SEO Executive with extensive expertise in search engine optimization, backlink building, technical SEO, keyword research, and local citation building.
+                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (also known as <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun SEO</strong>), an SEO Executive with extensive expertise in search engine optimization, backlink building, technical SEO, keyword research, and local citation building.
                 </p>
                 <p>
                   With over <strong className="dark:text-[#8BBB92] text-[#2A835F] font-semibold">5+ years of total career experience</strong> in link building and SEO strategies across various client projects, I joined <strong className="dark:text-white text-[#092328] font-semibold">ScaleUP Ads Agency</strong> on 01 July 2025 to lead data-driven client campaigns and organic search expansion.

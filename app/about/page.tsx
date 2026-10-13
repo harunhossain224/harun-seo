@@ -156,7 +156,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-base sm:text-lg dark:text-gray-300 text-gray-700 max-w-2xl leading-relaxed mb-8">
-                Welcome! I am an experienced SEO Executive with <strong className="dark:text-white text-[#092328] font-semibold">5+ years of career experience</strong> specializing in technical SEO, manual link building, local citations, and organic search growth for businesses worldwide.
+                Welcome! I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (also known as <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun SEO</strong>), an experienced SEO Executive with <strong className="dark:text-white text-[#092328] font-semibold">5+ years of career experience</strong> specializing in technical SEO, manual link building, local citations, and organic search growth for businesses worldwide.
               </p>
 
               {/* Quick Hero Highlights Badges */}
@@ -206,8 +206,8 @@ export default function AboutPage() {
                 <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/40 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                   <Image
                     src="/harun-seo.png"
-                    alt="Harun SEO - Md Harun or Roshid SEO Specialist & Executive"
-                    title="Harun SEO (Md Harun or Roshid)"
+                    alt="Harun SEO - Md Harun or Roshid (Harun Sha) SEO Specialist & Executive"
+                    title="Harun SEO | Md Harun or Roshid (Harun Sha)"
                     width={600}
                     height={750}
                     priority
