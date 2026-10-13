@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, TrendingUp, Search, Award, MessageCircle, BarChart3, Globe } from "lucide-react";
 
 export default function HeroSection() {
@@ -42,7 +43,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg dark:text-gray-300 text-gray-700 max-w-2xl leading-relaxed mb-8">
-              Hi, I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong>. With <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">5+ years of total SEO experience</span>, I help businesses turn search engine visibility into revenue through data-driven <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Technical SEO</span>, ethical <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Link Building</span>, strategic keyword research, and actionable SEO audits.
+              Hi, I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (known as <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun SEO</strong>). With <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">5+ years of total SEO experience</span>, I provide data-driven <strong className="dark:text-white text-[#092328] font-semibold">Md Harun or Roshid SEO</strong> services including <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Technical SEO</span>, ethical <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Link Building</span>, strategic keyword research, and actionable SEO audits.
             </p>
 
             {/* Key Feature Bullets */}
@@ -81,12 +82,25 @@ export default function HeroSection() {
             <div className="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden dark:bg-[#12544F]/40 bg-white border dark:border-[#8BBB92]/25 border-emerald-600/20 shadow-xl">
               {/* Header Badge in Card */}
               <div className="flex items-center justify-between pb-6 border-b dark:border-[#2A835F]/30 border-gray-200 mb-6">
-                <div>
-                  <h3 className="text-xl font-bold dark:text-white text-[#092328]">Md. Harun or Roshid</h3>
-                  <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-semibold">SEO Specialist | 5+ Yrs Exp</p>
+                <div className="flex items-center gap-3.5">
+                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-[#2A835F] shadow-md shrink-0 bg-gray-100 dark:bg-[#092328]">
+                    <Image
+                      src="/harun-seo.png"
+                      alt="Harun SEO - Md Harun or Roshid SEO Specialist"
+                      title="Harun SEO | Md Harun or Roshid"
+                      width={120}
+                      height={120}
+                      priority
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold dark:text-white text-[#092328]">Md. Harun or Roshid</h3>
+                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-semibold">Harun SEO | Senior SEO Specialist</p>
+                  </div>
                 </div>
-                <div className="p-3 dark:bg-[#2A835F]/30 bg-[#e2f1ed] rounded-2xl border dark:border-[#8BBB92]/30 border-emerald-600/20">
-                  <Search className="w-6 h-6 text-[#2A835F]" />
+                <div className="p-2.5 sm:p-3 dark:bg-[#2A835F]/30 bg-[#e2f1ed] rounded-2xl border dark:border-[#8BBB92]/30 border-emerald-600/20 shrink-0">
+                  <Search className="w-5 sm:w-6 h-5 sm:h-6 text-[#2A835F]" />
                 </div>
               </div>
 

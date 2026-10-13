@@ -26,14 +26,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Md. Harun or Roshid | Senior SEO Executive",
+  title: "Harun SEO — About Md. Harun or Roshid | Senior SEO Specialist",
   description:
-    "Discover the career, expertise, and SEO methodology of Md. Harun or Roshid — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, and Organic Traffic Growth.",
+    "Discover the career, expertise, and SEO methodology of Md. Harun or Roshid (Harun SEO) — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, and Organic Traffic Growth.",
   keywords: [
+    "Harun SEO",
+    "Md Harun or Roshid SEO",
+    "Harun",
     "Md. Harun or Roshid",
     "Md Harun or Roshid",
-    "Harun SEO",
-    "Harun",
     "SEO Executive",
     "About Harun SEO",
     "ScaleUP Ads Agency",
@@ -45,17 +46,17 @@ export const metadata: Metadata = {
     canonical: "https://www.harunseo.com/about",
   },
   openGraph: {
-    title: "About Md. Harun or Roshid | Senior SEO Executive",
+    title: "Harun SEO — About Md. Harun or Roshid | Senior SEO Specialist",
     description:
-      "Official biography and portfolio of Md. Harun or Roshid — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO and Link Building.",
+      "Official biography and portfolio of Md. Harun or Roshid (Harun SEO) — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO and Link Building.",
     url: "https://www.harunseo.com/about",
     type: "profile",
     images: [
       {
         url: "/harun-seo.png",
         width: 1200,
-        height: 630,
-        alt: "Md. Harun or Roshid - Senior SEO Executive at ScaleUP Ads Agency",
+        height: 1500,
+        alt: "Harun SEO - Md Harun or Roshid SEO Specialist & Senior Executive",
       },
     ],
   },
@@ -205,8 +206,8 @@ export default function AboutPage() {
                 <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/40 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                   <Image
                     src="/harun-seo.png"
-                    alt="Md. Harun or Roshid - Senior SEO Executive and Specialist"
-                    title="Md. Harun or Roshid - Senior SEO Executive at ScaleUP Ads Agency"
+                    alt="Harun SEO - Md Harun or Roshid SEO Specialist & Executive"
+                    title="Harun SEO (Md Harun or Roshid)"
                     width={600}
                     height={750}
                     priority
