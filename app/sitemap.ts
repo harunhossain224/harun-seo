@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
       images: [
         `${baseUrl}/harun-seo.png`,
+        `${baseUrl}/harun.png`,
+        `${baseUrl}/harun-sha.png`,
         `${baseUrl}/md-harun-or-roshid.png`,
       ],
     },
@@ -30,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
       images: [
         `${baseUrl}/harun-seo.png`,
+        `${baseUrl}/harun.png`,
+        `${baseUrl}/harun-sha.png`,
         `${baseUrl}/md-harun-or-roshid.png`,
       ],
     },
