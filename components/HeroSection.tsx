@@ -1,28 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, TrendingUp, Search, Award, MessageCircle, BarChart3, Globe } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingUp, Search, Award, MessageCircle, BarChart3, Globe, Sparkles, Bot, Cpu, Layers } from "lucide-react";
 
 export default function HeroSection() {
   const highlights = [
-    "Technical Crawl & Indexing Fixes",
-    "Manual High-DA Link Building",
-    "Keyword & Competitor Strategy",
-    "Local SEO & Citation Building",
+    "AI-First SEO Strategy & Generative Engine Optimization (GEO)",
+    "Local SEO Booster & Google Maps 3-Pack Dominance",
+    "CMS SEO Expert (WordPress, Shopify, Webflow, Wix)",
+    "Semantic Topical Authority & White-Hat Link Building",
+  ];
+
+  const searchPlatforms = [
+    { name: "Google Search", badge: "SERP Top 1" },
+    { name: "Google Maps", badge: "3-Pack Booster" },
+    { name: "ChatGPT Search", badge: "AI Citations" },
+    { name: "Google Gemini", badge: "AIO Optimization" },
+    { name: "Perplexity AI", badge: "Verified Answers" },
+    { name: "Bing AI", badge: "Copilot Indexing" },
+  ];
+
+  const cmsPlatforms = [
+    "WordPress SEO",
+    "Shopify SEO",
+    "Webflow SEO",
+    "Wix SEO",
+    "Next.js / Custom CMS",
   ];
 
   const stats = [
-    { label: "Years Experience", value: "5+", icon: Award },
-    { label: "Websites Optimized", value: "100+", icon: Globe },
-    { label: "High-Quality Backlinks", value: "10k+", icon: TrendingUp },
+    { label: "Years Hands-On SEO", value: "5+", icon: Award },
+    { label: "Websites Ranked", value: "100+", icon: Globe },
+    { label: "Organic Growth Surge", value: "+340%", icon: TrendingUp },
     { label: "Audit Accuracy Rate", value: "99.8%", icon: BarChart3 },
   ];
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-hero-gradient">
       {/* Background Decorative Ambient Lights */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] dark:bg-[#2A835F]/15 bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[350px] h-[350px] dark:bg-[#8BBB92]/10 bg-teal-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] dark:bg-[#2A835F]/15 bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] dark:bg-[#8BBB92]/10 bg-teal-500/10 rounded-full blur-[110px] pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -31,28 +48,66 @@ export default function HeroSection() {
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full dark:bg-[#12544F]/80 bg-[#e2f1ed] border dark:border-[#8BBB92]/30 border-emerald-600/20 backdrop-blur-md mb-6 shadow-sm">
               <span className="w-2.5 h-2.5 rounded-full bg-[#2A835F] animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium dark:text-gray-200 text-gray-800">
-                SEO Executive — <strong className="dark:text-[#8BBB92] text-[#12544F]">ScaleUP Ads Agency</strong>
+              <span className="text-xs sm:text-sm font-semibold dark:text-gray-200 text-gray-800">
+                Top-Ranked SEO Specialist in Bangladesh • <strong className="dark:text-[#8BBB92] text-[#12544F]">ScaleUP Ads Agency</strong>
               </span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline styled like Sourov's top title */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold dark:text-white text-[#092328] tracking-tight leading-[1.15] mb-6">
-              Drive Sustainable <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-[#8BBB92] dark:via-[#2A835F] dark:to-emerald-400 from-[#2A835F] via-[#12544F] to-emerald-700">Organic Growth</span> & Top Rankings
+              Best SEO Expert In Bangladesh:{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r dark:from-[#8BBB92] dark:via-[#2A835F] dark:to-emerald-400 from-[#2A835F] via-[#12544F] to-emerald-700">
+                Md. Harun or Roshid (Harun SEO)
+              </span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg dark:text-gray-300 text-gray-700 max-w-2xl leading-relaxed mb-8">
-              Hi, I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (known as <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun SEO</strong>). With <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">5+ years of total SEO experience</span>, I provide data-driven <strong className="dark:text-white text-[#092328] font-semibold">Md Harun or Roshid SEO</strong> services including <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Technical SEO</span>, ethical <span className="dark:text-[#8BBB92] text-[#12544F] font-semibold">Link Building</span>, strategic keyword research, and actionable SEO audits.
+            {/* Subtitle with Sourov Biswas style AI-Era positioning */}
+            <p className="text-base sm:text-lg dark:text-gray-300 text-gray-700 max-w-2xl leading-relaxed mb-6">
+              Helping brands and businesses rank higher on <strong className="dark:text-white text-[#092328]">Google Search</strong>, <strong className="dark:text-white text-[#092328]">Google Maps</strong>, and emerging AI discovery engines like <strong className="dark:text-[#8BBB92] text-[#12544F]">ChatGPT, Google Gemini, Perplexity, and Bing AI</strong> through ethical, data-driven, and performance-focused SEO built for modern search and sustainable business growth.
             </p>
 
+            {/* AI Platforms & Search Engines Bar */}
+            <div className="mb-8 w-full max-w-2xl">
+              <div className="text-xs uppercase font-bold tracking-wider dark:text-[#8BBB92] text-[#12544F] mb-3 flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#2A835F]" /> Optimized for Modern Search & AI Engines:
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {searchPlatforms.map((platform, idx) => (
+                  <div
+                    key={idx}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl dark:bg-[#12544F]/50 bg-white border dark:border-[#8BBB92]/20 border-emerald-600/20 text-xs font-semibold shadow-sm"
+                  >
+                    <span className="dark:text-white text-[#092328]">{platform.name}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#2A835F]/20 text-[#2A835F] dark:text-[#8BBB92] font-bold">
+                      {platform.badge}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Key Feature Bullets */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10 w-full max-w-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 w-full max-w-xl">
               {highlights.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 dark:bg-[#12544F]/40 bg-white border dark:border-[#8BBB92]/15 border-emerald-600/20 px-3.5 py-2.5 rounded-xl shadow-sm">
                   <CheckCircle2 className="w-4 h-4 text-[#2A835F] shrink-0" />
                   <span className="text-xs sm:text-sm dark:text-gray-200 text-gray-800 font-medium">{item}</span>
                 </div>
+              ))}
+            </div>
+
+            {/* CMS Platforms Supported */}
+            <div className="flex flex-wrap items-center gap-2 mb-8 text-xs font-medium dark:text-gray-300 text-gray-700">
+              <span className="font-bold dark:text-[#8BBB92] text-[#12544F] flex items-center gap-1">
+                <Layers className="w-3.5 h-3.5" /> CMS Expertise:
+              </span>
+              {cmsPlatforms.map((cms, idx) => (
+                <span
+                  key={idx}
+                  className="px-2.5 py-1 rounded-lg dark:bg-[#092328]/70 bg-emerald-50 border dark:border-[#2A835F]/30 border-emerald-600/20 text-[11px]"
+                >
+                  {cms}
+                </span>
               ))}
             </div>
 
@@ -62,7 +117,7 @@ export default function HeroSection() {
                 href="#audit-form"
                 className="btn-primary w-full sm:w-auto px-7 py-3.5 rounded-xl font-bold text-base flex items-center justify-center gap-3 shadow-xl group"
               >
-                <span>Get Free SEO Audit</span>
+                <span>Request Free SEO Audit</span>
                 <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -72,7 +127,7 @@ export default function HeroSection() {
                 className="btn-secondary w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-base flex items-center justify-center gap-2.5"
               >
                 <MessageCircle className="w-5 h-5 text-[#2A835F]" />
-                <span>WhatsApp Direct</span>
+                <span>WhatsApp Direct (+880 1972-835738)</span>
               </a>
             </div>
           </div>
@@ -83,24 +138,25 @@ export default function HeroSection() {
               {/* Header Badge in Card */}
               <div className="flex items-center justify-between pb-6 border-b dark:border-[#2A835F]/30 border-gray-200 mb-6">
                 <div className="flex items-center gap-3.5">
-                  <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-[#2A835F] shadow-md shrink-0 bg-gray-100 dark:bg-[#092328]">
+                  <div className="relative w-16 h-16 rounded-2xl overflow-hidden border-2 border-[#2A835F] shadow-md shrink-0 bg-gray-100 dark:bg-[#092328]">
                     <Image
                       src="/harun-seo.png"
-                      alt="Harun SEO - Md Harun or Roshid (Harun Sha) SEO Specialist"
-                      title="Harun SEO | Md Harun or Roshid (Harun Sha)"
-                      width={120}
-                      height={120}
+                      alt="Harun SEO - Md Harun or Roshid (Harun Sha) Best SEO Specialist in Bangladesh"
+                      title="Harun SEO | Md Harun or Roshid (Harun Sha) - Top SEO Consultant"
+                      width={140}
+                      height={140}
                       priority
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold dark:text-white text-[#092328]">Md. Harun or Roshid</h3>
-                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-semibold">Harun Sha (Harun SEO) | Senior Specialist</p>
+                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-semibold">Harun Sha (Harun SEO)</p>
+                    <span className="text-[11px] dark:text-gray-300 text-gray-600">Senior SEO Executive @ ScaleUP Ads</span>
                   </div>
                 </div>
                 <div className="p-2.5 sm:p-3 dark:bg-[#2A835F]/30 bg-[#e2f1ed] rounded-2xl border dark:border-[#8BBB92]/30 border-emerald-600/20 shrink-0">
-                  <Search className="w-5 sm:w-6 h-5 sm:h-6 text-[#2A835F]" />
+                  <Bot className="w-5 sm:w-6 h-5 sm:h-6 text-[#2A835F]" />
                 </div>
               </div>
 
@@ -108,21 +164,25 @@ export default function HeroSection() {
               <div className="space-y-4 mb-6">
                 <div className="dark:bg-[#092328]/80 bg-[#f0f7f5] p-4 rounded-2xl border dark:border-[#2A835F]/30 border-emerald-600/20">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-semibold dark:text-gray-300 text-gray-700">Organic Traffic Growth</span>
-                    <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-md">+248%</span>
+                    <span className="text-xs font-semibold dark:text-gray-300 text-gray-700 flex items-center gap-1.5">
+                      <TrendingUp className="w-3.5 h-3.5 text-[#2A835F]" /> AI & Organic Search Traffic Growth
+                    </span>
+                    <span className="text-xs font-bold text-emerald-600 bg-emerald-500/10 px-2 py-0.5 rounded-md">+340%</span>
                   </div>
                   <div className="w-full dark:bg-[#12544F]/50 bg-emerald-100 h-2.5 rounded-full overflow-hidden">
-                    <div className="bg-gradient-to-r from-[#2A835F] to-emerald-400 h-full w-[85%] rounded-full animate-pulse" />
+                    <div className="bg-gradient-to-r from-[#2A835F] to-emerald-400 h-full w-[90%] rounded-full animate-pulse" />
                   </div>
                 </div>
 
                 <div className="dark:bg-[#092328]/80 bg-[#f0f7f5] p-4 rounded-2xl border dark:border-[#2A835F]/30 border-emerald-600/20">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xs font-semibold dark:text-gray-300 text-gray-700">Google First Page Keywords</span>
-                    <span className="text-xs font-bold dark:text-[#8BBB92] text-[#12544F] dark:bg-[#2A835F]/20 bg-[#e2f1ed] px-2 py-0.5 rounded-md">85+ Top 3 Terms</span>
+                    <span className="text-xs font-semibold dark:text-gray-300 text-gray-700 flex items-center gap-1.5">
+                      <Search className="w-3.5 h-3.5 text-[#2A835F]" /> Google Top 3 & AI Citation Keywords
+                    </span>
+                    <span className="text-xs font-bold dark:text-[#8BBB92] text-[#12544F] dark:bg-[#2A835F]/20 bg-[#e2f1ed] px-2 py-0.5 rounded-md">95+ Top Terms</span>
                   </div>
                   <div className="w-full dark:bg-[#12544F]/50 bg-emerald-100 h-2.5 rounded-full overflow-hidden">
-                    <div className="bg-gradient-to-r from-[#12544F] via-[#2A835F] to-emerald-400 h-full w-[92%] rounded-full" />
+                    <div className="bg-gradient-to-r from-[#12544F] via-[#2A835F] to-emerald-400 h-full w-[94%] rounded-full" />
                   </div>
                 </div>
               </div>
@@ -133,7 +193,7 @@ export default function HeroSection() {
                   <CheckCircle2 className="w-5 h-5 text-[#2A835F]" />
                 </div>
                 <p className="text-xs dark:text-gray-300 text-gray-800">
-                  <strong className="dark:text-white text-[#092328] font-semibold">Strict Ethical SEO:</strong> Zero PBNs, 100% manual high-intent backlink strategies & technical compliance.
+                  <strong className="dark:text-white text-[#092328] font-semibold">100% White-Hat Systems:</strong> No shortcuts, no PBNs. Sustainable SEO compounding over time for long-term search dominance.
                 </p>
               </div>
             </div>

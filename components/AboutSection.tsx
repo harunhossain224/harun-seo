@@ -2,23 +2,35 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { User, Mail, Phone, MapPin, Building2, Target, ShieldCheck, CheckCircle, ArrowRight, Award } from "lucide-react";
+import { User, Mail, Phone, MapPin, Building2, Target, ShieldCheck, CheckCircle, ArrowRight, Award, Bot, Sparkles } from "lucide-react";
 
 export default function AboutSection() {
   const infoCards = [
     { label: "Full Name", value: "Md. Harun or Roshid", icon: User },
-    { label: "Job Title", value: "SEO Executive", icon: ShieldCheck },
-    { label: "Company / Agency", value: "ScaleUP Ads Agency", icon: Building2 },
+    { label: "Job Title", value: "Senior SEO Specialist & Executive", icon: ShieldCheck },
+    { label: "Agency", value: "ScaleUP Ads Agency", icon: Building2 },
     { label: "Location", value: "Dhaka, Bangladesh", icon: MapPin },
     { label: "Email", value: "harunsha197@gmail.com", icon: Mail, isLink: "mailto:harunsha197@gmail.com" },
-    { label: "Phone / WhatsApp", value: "+880 1972-835738", icon: Phone, isLink: "https://wa.me/8801972835738" },
+    { label: "WhatsApp Direct", value: "+880 1972-835738", icon: Phone, isLink: "https://wa.me/8801972835738" },
   ];
 
   const corePillars = [
-    { title: "Technical Precision", desc: "Resolving crawl errors, indexing issues, canonical tags, sitemaps, and robots.txt optimizations." },
-    { title: "Quality Link Building", desc: "Strictly acquiring ethical, high-authority backlink profiles through Web 2.0, citations, and manual outreach." },
-    { title: "Search Intent Keywords", desc: "Targeting high-converting long-tail and commercial search queries tailored for B2B & B2C." },
-    { title: "Continuous Monitoring", desc: "Data-driven tracking using GSC, GA4, Ahrefs, and Semrush to sustain long-term organic growth." },
+    {
+      title: "AI & Generative Search (GEO)",
+      desc: "Optimizing entities, LLM brand citations, and structured semantic data for ChatGPT, Google Gemini, and Perplexity.",
+    },
+    {
+      title: "Technical SEO Precision",
+      desc: "Eliminating crawl waste, 404 loops, canonical glitches, rendering friction, and optimizing Core Web Vitals.",
+    },
+    {
+      title: "Topical Authority & Semantic SEO",
+      desc: "Architecting structured content hubs and knowledge graphs so search engines recognize you as the definitive niche authority.",
+    },
+    {
+      title: "100% White-Hat Link Acquisition",
+      desc: "Strictly ethical, high-DA manual outreach, brand mentions, and tiered citations with zero PBN penalty risks.",
+    },
   ];
 
   return (
@@ -28,13 +40,15 @@ export default function AboutSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full dark:bg-[#12544F]/60 bg-[#e2f1ed] border dark:border-[#8BBB92]/30 border-emerald-600/20 mb-4">
             <User className="w-4 h-4 text-[#2A835F]" />
-            <span className="text-xs font-semibold dark:text-[#8BBB92] text-[#12544F] uppercase tracking-wider">About The Specialist</span>
+            <span className="text-xs font-semibold dark:text-[#8BBB92] text-[#12544F] uppercase tracking-wider">
+              About The Specialist
+            </span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold dark:text-white text-[#092328] tracking-tight">
             Meet <span className="dark:text-[#8BBB92] text-[#2A835F]">Md. Harun or Roshid</span>
           </h2>
           <p className="mt-4 dark:text-gray-300 text-gray-700 text-base sm:text-lg leading-relaxed">
-            Dedicated SEO Executive driving scalable search engine rankings and sustainable organic traffic growth.
+            Senior SEO Specialist at ScaleUP Ads Agency with 5+ years of hands-on experience driving real, compounding business growth across Bangladesh and global markets.
           </p>
         </div>
 
@@ -43,14 +57,14 @@ export default function AboutSection() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md">
               {/* Decorative Ambient Backlight */}
-              <div className="absolute -inset-4 dark:bg-gradient-to-r dark:from-[#2A835F]/30 dark:to-[#12544F]/40 bg-gradient-to-r from-emerald-400/20 to-teal-500/20 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+              <div className="absolute -inset-4 dark:bg-gradient-to-r dark:from-[#2A835F]/30 dark:to-[#12544F]/40 bg-gradient-to-r from-emerald-400/20 to-teal-500/20 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000" />
 
               {/* Main Image Container */}
               <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                 <Image
                   src="/harun-seo.png"
-                  alt="Harun SEO - Md Harun or Roshid (Harun Sha) SEO Specialist & Executive"
-                  title="Harun SEO | Md Harun or Roshid (Harun Sha) - Senior SEO Specialist"
+                  alt="Harun SEO - Md Harun or Roshid (Harun Sha) Best SEO Specialist in Bangladesh"
+                  title="Harun SEO | Md Harun or Roshid (Harun Sha) - Top SEO Consultant"
                   width={500}
                   height={650}
                   priority
@@ -66,8 +80,8 @@ export default function AboutSection() {
                     5+
                   </div>
                   <div>
-                    <span className="text-xs font-bold dark:text-white text-[#092328] block">Years Experience</span>
-                    <span className="text-[10px] dark:text-[#8BBB92] text-[#2A835F] font-semibold">SEO & Link Building</span>
+                    <span className="text-xs font-bold dark:text-white text-[#092328] block">Years Hands-On SEO</span>
+                    <span className="text-[10px] dark:text-[#8BBB92] text-[#2A835F] font-semibold">Technical & AI-Era Optimization</span>
                   </div>
                 </div>
 
@@ -75,7 +89,7 @@ export default function AboutSection() {
                 <div className="absolute bottom-4 left-4 right-4 dark:bg-[#12544F]/90 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-xl flex items-center justify-between">
                   <div>
                     <h4 className="text-sm font-bold dark:text-white text-[#092328]">Md. Harun or Roshid</h4>
-                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-medium">SEO Executive @ ScaleUP Ads Agency</p>
+                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-medium">Harun Sha (Harun SEO) @ ScaleUP Ads</p>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-[#2A835F]/20 flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5 text-[#2A835F]" />
@@ -85,22 +99,25 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right Column: Bio & Summary */}
+          {/* Right Column: Bio & Summary (reengineered with Sourov Biswas's strategic methodology) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="glass-card rounded-3xl p-6 sm:p-8 dark:bg-[#12544F]/40 bg-white border dark:border-[#8BBB92]/20 border-emerald-600/20 shadow-md">
               <h3 className="text-xl sm:text-2xl font-bold dark:text-white text-[#092328] mb-4 flex items-center gap-3">
                 <span className="w-3.5 h-3.5 rounded-full bg-[#2A835F] animate-pulse" />
-                Professional Background
+                Strategic, AI-Optimized Search Approach
               </h3>
               <div className="space-y-4 dark:text-gray-300 text-gray-700 leading-relaxed text-sm sm:text-base">
                 <p>
-                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (also known as <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun SEO</strong>), an SEO Executive with extensive expertise in search engine optimization, backlink building, technical SEO, keyword research, and local citation building.
+                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (widely known as <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun SEO</strong>), a results-driven SEO specialist providing strategic, AI-optimized SEO services for businesses across Bangladesh and international markets.
                 </p>
                 <p>
-                  With over <strong className="dark:text-[#8BBB92] text-[#2A835F] font-semibold">5+ years of total career experience</strong> in link building and SEO strategies across various client projects, I joined <strong className="dark:text-white text-[#092328] font-semibold">ScaleUP Ads Agency</strong> on 01 July 2025 to lead data-driven client campaigns and organic search expansion.
+                  With <strong className="dark:text-[#8BBB92] text-[#2A835F] font-semibold">5+ years of hands-on experience</strong>, I help local businesses, startups, and e-commerce brands improve their visibility—not only in <strong className="dark:text-white text-[#092328] font-medium">Google Search and Google Maps</strong>, but also across emerging AI-powered discovery platforms like <strong className="dark:text-[#8BBB92] text-[#2A835F] font-medium">ChatGPT, Google Gemini, Perplexity, and Bing AI</strong>.
                 </p>
                 <p>
-                  My methodology combines technical site accuracy, strategic keyword targeting, high-quality link building, content optimization, local citations, and continuous search performance tracking to help businesses strengthen online authority.
+                  My approach combines <span className="font-semibold dark:text-white text-[#092328]">Technical SEO, Local SEO, On-Page and Off-Page SEO, Semantic & Holistic SEO, Topical Authority building, AIO, LLMO, GEO strategies</span>, and content optimization—so search engines and AI systems clearly understand who you are, what you offer, and why you deserve top visibility.
+                </p>
+                <p className="border-l-4 border-[#2A835F] pl-3 italic text-xs sm:text-sm dark:text-emerald-200/90 text-[#12544F]">
+                  &ldquo;I focus strictly on white-hat, data-driven SEO systems, not shortcuts or temporary hacks. The goal is simple: build long-term search visibility, trust, and sustainable growth that continues to compound over time.&rdquo;
                 </p>
               </div>
 
@@ -109,7 +126,7 @@ export default function AboutSection() {
                 {corePillars.map((pillar, idx) => (
                   <div key={idx} className="dark:bg-[#092328]/60 bg-[#f0f7f5] p-4 rounded-2xl border dark:border-[#8BBB92]/15 border-emerald-600/20">
                     <h4 className="text-sm font-bold dark:text-[#8BBB92] text-[#12544F] mb-1 flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-[#2A835F]" /> {pillar.title}
+                      <CheckCircle className="w-4 h-4 text-[#2A835F] shrink-0" /> {pillar.title}
                     </h4>
                     <p className="text-xs dark:text-gray-300 text-gray-600 leading-relaxed">{pillar.desc}</p>
                   </div>
@@ -119,13 +136,13 @@ export default function AboutSection() {
               {/* Link to Dedicated About Page */}
               <div className="mt-8 pt-6 border-t dark:border-[#2A835F]/30 border-gray-200 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-xs font-semibold dark:text-[#8BBB92] text-[#12544F]">
-                  <Award className="w-4 h-4 text-[#2A835F]" /> Verified SEO Specialist Credentials
+                  <Award className="w-4 h-4 text-[#2A835F]" /> ScaleUP Ads Agency Senior Executive
                 </div>
                 <Link
                   href="/about"
                   className="btn-primary text-sm font-bold px-6 py-3 rounded-full flex items-center gap-2 group shadow-lg"
                 >
-                  <span>Explore Full Profile & Bio</span>
+                  <span>Explore Full Bio & Credentials</span>
                   <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
