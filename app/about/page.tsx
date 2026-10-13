@@ -71,6 +71,7 @@ export default function AboutPage() {
     { label: "Primary Location", value: "Dhaka, Bangladesh", icon: MapPin },
     { label: "Direct Email", value: "harunsha197@gmail.com", icon: Mail, href: "mailto:harunsha197@gmail.com" },
     { label: "WhatsApp / Phone", value: "+880 1972-835738", icon: Phone, href: "https://wa.me/8801972835738" },
+    { label: "Facebook Profile", value: "facebook.com/harwn.sha.2024", icon: Globe, href: "https://www.facebook.com/harwn.sha.2024" },
   ];
 
   const stats = [
@@ -348,7 +349,7 @@ export default function AboutPage() {
                             <a
                               href={info.href}
                               target={info.href.startsWith("http") ? "_blank" : undefined}
-                              rel="noopener noreferrer"
+                              rel={info.href.startsWith("http") ? "me noopener noreferrer" : undefined}
                               className="text-xs sm:text-sm font-bold dark:text-[#8BBB92] text-[#2A835F] hover:underline truncate block"
                             >
                               {info.value}

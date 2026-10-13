@@ -132,6 +132,7 @@ const jsonLd = {
       telephone: "+8801972835738",
       sameAs: [
         "https://www.harunseo.com",
+        "https://www.facebook.com/harwn.sha.2024",
         "https://wa.me/8801972835738",
       ],
       knowsAbout: [
