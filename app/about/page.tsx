@@ -26,16 +26,22 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Harun SEO — About Md. Harun or Roshid | Senior SEO Specialist",
+  title: "Harun Shah (Harun Sha) — About Md. Harun or Roshid | Senior SEO Specialist",
   description:
-    "Discover the career, expertise, and SEO methodology of Md. Harun or Roshid (Harun SEO) — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, and Organic Traffic Growth.",
+    "Discover the career, expertise, and SEO methodology of Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, and Organic Growth.",
   keywords: [
+    "Harun Shah",
+    "Harun Shah SEO",
+    "Harun Shah SEO Specialist",
+    "Harun Sha",
+    "Harun Sha SEO",
     "Harun SEO",
     "Md Harun or Roshid SEO",
     "Harun",
     "Md. Harun or Roshid",
     "Md Harun or Roshid",
     "SEO Executive",
+    "About Harun Shah",
     "About Harun SEO",
     "ScaleUP Ads Agency",
     "SEO Specialist Biography",
@@ -46,12 +52,18 @@ export const metadata: Metadata = {
     canonical: "https://www.harunseo.com/about",
   },
   openGraph: {
-    title: "Harun SEO — About Md. Harun or Roshid | Senior SEO Specialist",
+    title: "Harun Shah (Harun Sha) — About Md. Harun or Roshid | Senior SEO Specialist",
     description:
-      "Official biography and portfolio of Md. Harun or Roshid (Harun SEO) — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO and Link Building.",
+      "Official biography and portfolio of Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO) — SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO and Link Building.",
     url: "https://www.harunseo.com/about",
     type: "profile",
     images: [
+      {
+        url: "/harun-shah.png",
+        width: 1200,
+        height: 1500,
+        alt: "Harun Shah - Senior SEO Specialist & Executive",
+      },
       {
         url: "/harun-seo.png",
         width: 1200,
@@ -156,7 +168,7 @@ export default function AboutPage() {
               </h1>
 
               <p className="text-base sm:text-lg dark:text-gray-300 text-gray-700 max-w-2xl leading-relaxed mb-8">
-                Welcome! I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (also known as <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#12544F]">Harun SEO</strong>), an experienced SEO Executive with <strong className="dark:text-white text-[#092328] font-semibold">5+ years of career experience</strong> specializing in technical SEO, manual link building, local citations, and organic search growth for businesses worldwide.
+                Welcome! I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong>, an experienced SEO Executive with <strong className="dark:text-white text-[#092328] font-semibold">5+ years of career experience</strong> specializing in technical SEO, manual link building, local citations, and organic search growth for businesses worldwide.
               </p>
 
               {/* Quick Hero Highlights Badges */}

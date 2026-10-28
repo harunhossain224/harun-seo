@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1.0,
       images: [
+        `${baseUrl}/harun-shah.png`,
         `${baseUrl}/harun-seo.png`,
         `${baseUrl}/harun.png`,
         `${baseUrl}/harun-sha.png`,
@@ -31,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
       images: [
+        `${baseUrl}/harun-shah.png`,
         `${baseUrl}/harun-seo.png`,
         `${baseUrl}/harun.png`,
         `${baseUrl}/harun-sha.png`,

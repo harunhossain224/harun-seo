@@ -12,6 +12,12 @@ export async function GET() {
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
+      <image:loc>${baseUrl}/harun-shah.png</image:loc>
+      <image:title>Harun Shah - Senior SEO Specialist</image:title>
+      <image:caption>Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO) - Senior SEO Executive at ScaleUP Ads Agency</image:caption>
+      <image:geo_location>Dhaka, Bangladesh</image:geo_location>
+    </image:image>
+    <image:image>
       <image:loc>${baseUrl}/harun-seo.png</image:loc>
       <image:title>Harun SEO - Md Harun or Roshid SEO Specialist</image:title>
       <image:caption>Official Portfolio Photo of Md. Harun or Roshid (Harun SEO), Senior SEO Specialist at ScaleUP Ads Agency</image:caption>
@@ -41,6 +47,12 @@ export async function GET() {
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>${baseUrl}/harun-shah.png</image:loc>
+      <image:title>Harun Shah - SEO Specialist Biography Photo</image:title>
+      <image:caption>Harun Shah (Harun Sha) Senior SEO Executive Profile</image:caption>
+      <image:geo_location>Dhaka, Bangladesh</image:geo_location>
+    </image:image>
     <image:image>
       <image:loc>${baseUrl}/harun-seo.png</image:loc>
       <image:title>About Harun SEO - Md Harun or Roshid</image:title>

@@ -63,8 +63,8 @@ export default function AboutSection() {
               <div className="relative rounded-3xl overflow-hidden border-2 dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-2xl dark:bg-[#092328] bg-white group">
                 <Image
                   src="/harun-seo.png"
-                  alt="Harun SEO - Md Harun or Roshid (Harun Sha) Best SEO Specialist in Bangladesh"
-                  title="Harun SEO | Md Harun or Roshid (Harun Sha) - Top SEO Consultant"
+                  alt="Md. Harun or Roshid - Best SEO Specialist in Bangladesh"
+                  title="Md. Harun or Roshid - Top SEO Consultant"
                   width={500}
                   height={650}
                   priority
@@ -89,7 +89,7 @@ export default function AboutSection() {
                 <div className="absolute bottom-4 left-4 right-4 dark:bg-[#12544F]/90 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl border dark:border-[#8BBB92]/30 border-emerald-600/30 shadow-xl flex items-center justify-between">
                   <div>
                     <h4 className="text-sm font-bold dark:text-white text-[#092328]">Md. Harun or Roshid</h4>
-                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-medium">Harun Sha (Harun SEO) @ ScaleUP Ads</p>
+                    <p className="text-xs dark:text-[#8BBB92] text-[#12544F] font-medium">Senior SEO Specialist @ ScaleUP Ads</p>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-[#2A835F]/20 flex items-center justify-center">
                     <ShieldCheck className="w-5 h-5 text-[#2A835F]" />
@@ -108,7 +108,7 @@ export default function AboutSection() {
               </h3>
               <div className="space-y-4 dark:text-gray-300 text-gray-700 leading-relaxed text-sm sm:text-base">
                 <p>
-                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong> (widely known as <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun Sha</strong> / <strong className="dark:text-[#8BBB92] text-[#2A835F]">Harun SEO</strong>), a results-driven SEO specialist providing strategic, AI-optimized SEO services for businesses across Bangladesh and international markets.
+                  I am <strong className="dark:text-white text-[#092328] font-semibold">Md. Harun or Roshid</strong>, a results-driven SEO specialist providing strategic, AI-optimized SEO services for businesses across Bangladesh and international markets.
                 </p>
                 <p>
                   With <strong className="dark:text-[#8BBB92] text-[#2A835F] font-semibold">5+ years of hands-on experience</strong>, I help local businesses, startups, and e-commerce brands improve their visibility—not only in <strong className="dark:text-white text-[#092328] font-medium">Google Search and Google Maps</strong>, but also across emerging AI-powered discovery platforms like <strong className="dark:text-[#8BBB92] text-[#2A835F] font-medium">ChatGPT, Google Gemini, Perplexity, and Bing AI</strong>.

@@ -1,15 +1,37 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, Menu, X, ArrowRight, ShieldCheck, Sun, Moon, Check } from "lucide-react";
+import {
+  Search,
+  Menu,
+  X,
+  ArrowRight,
+  ShieldCheck,
+  Sun,
+  Moon,
+  Check,
+  ChevronDown,
+  Sparkles,
+  Bot,
+  MapPin,
+  Layers,
+  ShoppingBag,
+  Wrench,
+  FileCode,
+  Link as LinkIcon,
+  Video,
+} from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
 
@@ -23,6 +45,16 @@ export default function Navbar() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -68,16 +100,75 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
+  const serviceItems = [
+    {
+      name: "AI-First SEO Strategy & GEO",
+      desc: "ChatGPT, Gemini, Perplexity & LLMO",
+      href: "/#services",
+      icon: Bot,
+      badge: "AI-Era",
+    },
+    {
+      name: "Local SEO Booster & Maps",
+      desc: "Google Maps 3-Pack & GBP rank booster",
+      href: "/#services",
+      icon: MapPin,
+      badge: "Local",
+    },
+    {
+      name: "CMS SEO (WordPress / Shopify)",
+      desc: "Platform tuning for WordPress, Shopify, Wix",
+      href: "/#services",
+      icon: Layers,
+      badge: "CMS",
+    },
+    {
+      name: "E-Commerce SEO Dominance",
+      desc: "Scale product & category revenue traffic",
+      href: "/#services",
+      icon: ShoppingBag,
+      badge: "E-Com",
+    },
+    {
+      name: "Technical SEO & Crawl Budget",
+      desc: "Speed, index traps, 404s & Core Web Vitals",
+      href: "/#services",
+      icon: Wrench,
+      badge: "Tech",
+    },
+    {
+      name: "Semantic & Holistic On-Page",
+      desc: "Topical clusters, entity mapping & schema",
+      href: "/#services",
+      icon: FileCode,
+      badge: "Semantic",
+    },
+    {
+      name: "White-Hat Link Building",
+      desc: "High-DA manual outreach & tier-1 PR",
+      href: "/#services",
+      icon: LinkIcon,
+      badge: "Links",
+    },
+    {
+      name: "YouTube & Video SEO",
+      desc: "Rank on YouTube & Google video SERP",
+      href: "/#services",
+      icon: Video,
+      badge: "Video",
+    },
+  ];
+
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "Services", href: "/#services" },
+    { name: "Services", href: "/#services", isDropdown: true },
     { name: "Case Studies", href: "/#case-studies" },
     { name: "Solutions", href: "/#solutions" },
     { name: "SEO Tools", href: "/#tools" },
     { name: "Experience", href: "/#experience" },
     { name: "Reviews", href: "/#testimonials" },
+    { name: "Blog", href: "/blog" },
     { name: "FAQ", href: "/#faq" },
   ];
 
@@ -126,6 +217,106 @@ export default function Navbar() {
         <nav className="hidden lg:flex items-center gap-1 dark:bg-[#12544F]/40 bg-[#e2f1ed] backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-600/20 dark:border-none shadow-inner">
           {navLinks.map((link) => {
             const active = isLinkActive(link.href);
+
+            if (link.isDropdown) {
+              return (
+                <div
+                  key={link.name}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={() => setServicesDropdownOpen(true)}
+                  onMouseLeave={() => setServicesDropdownOpen(false)}
+                >
+                  <button
+                    onClick={() => setServicesDropdownOpen((prev) => !prev)}
+                    className={`relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-medium rounded-full transition-all duration-200 flex items-center gap-1 whitespace-nowrap cursor-pointer ${
+                      active || servicesDropdownOpen
+                        ? "bg-gradient-to-r from-[#2A835F] to-[#12544F] text-white shadow-md shadow-[#2A835F]/30 font-semibold scale-[1.02]"
+                        : "dark:text-gray-300 text-gray-700 dark:hover:text-[#8BBB92] hover:text-[#12544F] dark:hover:bg-[#2A835F]/20 hover:bg-emerald-600/10"
+                    }`}
+                    aria-expanded={servicesDropdownOpen}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        servicesDropdownOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Dropdown Megamenu */}
+                  {servicesDropdownOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[580px] xl:w-[620px] z-50 animate-fadeIn">
+                      <div className="dark:bg-[#092328]/98 bg-white/98 backdrop-blur-2xl rounded-3xl p-5 border-2 dark:border-[#8BBB92]/30 border-emerald-600/25 shadow-2xl shadow-emerald-950/40">
+                        {/* Header */}
+                        <div className="flex items-center justify-between pb-3 mb-3 border-b dark:border-[#12544F]/60 border-gray-100">
+                          <div className="flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-[#2A835F]" />
+                            <span className="text-xs font-bold uppercase tracking-wider dark:text-[#8BBB92] text-[#12544F]">
+                              Core SEO Services (8 Capabilities)
+                            </span>
+                          </div>
+                          <Link
+                            href="/#services"
+                            onClick={() => setServicesDropdownOpen(false)}
+                            className="text-xs font-semibold text-[#2A835F] dark:text-[#8BBB92] hover:underline flex items-center gap-1"
+                          >
+                            <span>View All Grid</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+
+                        {/* 2-column Grid of Services */}
+                        <div className="grid grid-cols-2 gap-2">
+                          {serviceItems.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                onClick={() => setServicesDropdownOpen(false)}
+                                className="flex items-start gap-2.5 p-2 rounded-2xl dark:hover:bg-[#12544F]/50 hover:bg-[#e2f1ed] transition-all group border border-transparent dark:hover:border-[#8BBB92]/20 hover:border-emerald-600/20"
+                              >
+                                <div className="w-8 h-8 rounded-xl dark:bg-[#12544F] bg-[#e2f1ed] flex items-center justify-center shrink-0 dark:text-[#8BBB92] text-[#2A835F] group-hover:bg-[#2A835F] group-hover:text-white transition-colors mt-0.5">
+                                  <Icon className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-1.5">
+                                    <h4 className="text-xs font-bold dark:text-white text-[#092328] group-hover:text-[#2A835F] dark:group-hover:text-[#8BBB92] transition-colors truncate">
+                                      {item.name}
+                                    </h4>
+                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md dark:bg-[#092328] bg-emerald-50 dark:text-emerald-300 text-[#12544F] shrink-0">
+                                      {item.badge}
+                                    </span>
+                                  </div>
+                                  <p className="text-[11px] dark:text-gray-400 text-gray-600 line-clamp-1 mt-0.5">
+                                    {item.desc}
+                                  </p>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+
+                        {/* Footer Callout */}
+                        <div className="mt-3 pt-3 border-t dark:border-[#12544F]/60 border-gray-100 flex items-center justify-between text-xs dark:text-gray-300 text-gray-700 bg-emerald-500/5 dark:bg-[#12544F]/20 p-2.5 rounded-xl">
+                          <span className="font-medium">Need a custom AI & SEO ranking plan?</span>
+                          <Link
+                            href="/#audit-form"
+                            onClick={() => setServicesDropdownOpen(false)}
+                            className="font-bold text-[#2A835F] dark:text-[#8BBB92] hover:underline flex items-center gap-1"
+                          >
+                            <span>Get Free Audit</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.name}
@@ -184,10 +375,70 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden dark:bg-[#092328]/98 bg-white/98 backdrop-blur-xl px-6 py-6 transition-all animate-fadeIn shadow-2xl border-b dark:border-[#12544F]/50 border-gray-200">
+        <div className="lg:hidden dark:bg-[#092328]/98 bg-white/98 backdrop-blur-xl px-6 py-6 transition-all animate-fadeIn shadow-2xl border-b dark:border-[#12544F]/50 border-gray-200 max-h-[85vh] overflow-y-auto">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const active = isLinkActive(link.href);
+
+              if (link.isDropdown) {
+                return (
+                  <div key={link.name} className="flex flex-col">
+                    <button
+                      onClick={() => setMobileServicesOpen((prev) => !prev)}
+                      className={`text-base transition-all duration-200 py-2.5 px-3.5 rounded-xl flex items-center justify-between w-full cursor-pointer ${
+                        active || mobileServicesOpen
+                          ? "dark:bg-[#12544F] bg-[#e2f1ed] dark:text-emerald-300 text-[#12544F] font-bold border-l-4 border-[#2A835F] shadow-sm"
+                          : "font-medium dark:text-gray-200 text-gray-800 dark:hover:text-[#8BBB92] hover:text-[#2A835F] hover:bg-gray-100/50 dark:hover:bg-[#12544F]/30"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        {active && <Check className="w-4 h-4 text-[#2A835F]" />}
+                        {link.name}
+                      </span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          mobileServicesOpen ? "rotate-180 text-[#2A835F]" : "text-gray-400"
+                        }`}
+                      />
+                    </button>
+
+                    {/* Mobile Services Accordion Items */}
+                    {mobileServicesOpen && (
+                      <div className="pl-3 pr-1 py-2 my-1 flex flex-col gap-1.5 border-l-2 dark:border-[#2A835F]/40 border-emerald-600/20 ml-3">
+                        <Link
+                          href="/#services"
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileServicesOpen(false);
+                          }}
+                          className="py-1.5 px-3 rounded-lg text-xs font-bold text-[#2A835F] dark:text-[#8BBB92] flex items-center justify-between dark:bg-[#12544F]/30 bg-emerald-50"
+                        >
+                          <span>Explore All Services Grid</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                        {serviceItems.map((item) => {
+                          const Icon = item.icon;
+                          return (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileServicesOpen(false);
+                              }}
+                              className="py-2 px-3 rounded-lg text-xs font-medium dark:text-gray-300 text-gray-700 hover:text-[#2A835F] dark:hover:text-[#8BBB92] flex items-center gap-2 hover:bg-gray-100/40 dark:hover:bg-[#12544F]/20"
+                            >
+                              <Icon className="w-3.5 h-3.5 text-[#2A835F] shrink-0" />
+                              <span className="truncate">{item.name}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.name}

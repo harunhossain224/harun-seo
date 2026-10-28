@@ -13,17 +13,21 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.harunseo.com"),
   title: {
-    default: "Harun SEO | Md. Harun or Roshid — Senior SEO Specialist",
-    template: "%s | Harun SEO — Md. Harun or Roshid",
+    default: "Harun Shah (Harun Sha / Harun SEO) | Md. Harun or Roshid — Senior SEO Specialist",
+    template: "%s | Harun Shah (Harun SEO) — Md. Harun or Roshid",
   },
   description:
-    "Official Portfolio of Md. Harun or Roshid (Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, Keyword Strategy, and Organic Growth.",
+    "Official Portfolio of Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency with 5+ years of experience in Technical SEO, Link Building, Keyword Strategy, and Organic Growth.",
   keywords: [
+    "Harun Shah",
+    "Harun Shah SEO",
+    "Harun Shah SEO Specialist",
+    "Harun Shah Bangladesh",
+    "Harun Sha",
+    "Harun Sha SEO",
     "Harun SEO",
     "Md Harun or Roshid SEO",
     "Harun",
-    "Harun Sha",
-    "Harun Sha SEO",
     "Md. Harun or Roshid",
     "Md Harun or Roshid",
     "Md Harun SEO",
@@ -46,14 +50,20 @@ export const metadata: Metadata = {
     canonical: "https://www.harunseo.com",
   },
   openGraph: {
-    title: "Harun SEO | Md Harun or Roshid SEO Specialist & Executive",
+    title: "Harun Shah (Harun Sha / Harun SEO) | SEO Specialist & Executive",
     description:
-      "Official Portfolio of Md. Harun or Roshid (Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency. 5+ Years of practical SEO experience driving organic visibility and rankings.",
+      "Official Portfolio of Harun Shah (Md. Harun or Roshid / Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency. 5+ Years of practical SEO experience driving organic visibility and rankings.",
     url: "https://www.harunseo.com",
-    siteName: "Harun SEO — Md. Harun or Roshid",
+    siteName: "Harun Shah (Harun SEO) — Md. Harun or Roshid",
     locale: "en_US",
     type: "profile",
     images: [
+      {
+        url: "/harun-shah.png",
+        width: 1200,
+        height: 1500,
+        alt: "Harun Shah - Senior SEO Specialist & Executive Photo",
+      },
       {
         url: "/harun-seo.png",
         width: 1200,
@@ -82,10 +92,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harun SEO | Md Harun or Roshid SEO Specialist",
+    title: "Harun Shah (Harun SEO) | Md Harun or Roshid SEO Specialist",
     description:
-      "Official Portfolio of Md. Harun or Roshid (Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency with 5+ years of experience.",
-    images: ["/harun-seo.png"],
+      "Official Portfolio of Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO) — Senior SEO Executive at ScaleUP Ads Agency with 5+ years of experience.",
+    images: ["/harun-shah.png"],
     creator: "@harunseo",
   },
   robots: {
@@ -99,6 +109,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: ["/favicon.ico"],
+  },
 };
 
 const jsonLd = {
@@ -107,12 +128,14 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://www.harunseo.com/#person",
-      name: "Md. Harun or Roshid",
+      name: "Harun Shah (Md. Harun or Roshid)",
       alternateName: [
+        "Harun Shah",
+        "Harun Sha",
         "Harun SEO",
+        "Harun Shah SEO",
         "Md Harun or Roshid SEO",
         "Harun",
-        "Harun Sha",
         "Md. Harun or Roshid",
         "Md Harun or Roshid",
         "Md. Harun",
@@ -124,11 +147,11 @@ const jsonLd = {
       image: {
         "@type": "ImageObject",
         "@id": "https://www.harunseo.com/#personimage",
-        url: "https://www.harunseo.com/harun-seo.png",
-        contentUrl: "https://www.harunseo.com/harun-seo.png",
-        caption: "Harun SEO — Md Harun or Roshid SEO Specialist and Senior Executive",
-        name: "Harun SEO - Md Harun or Roshid SEO Specialist Photo",
-        description: "Official profile photo of Harun SEO (Md. Harun or Roshid), Senior SEO Executive at ScaleUP Ads Agency.",
+        url: "https://www.harunseo.com/harun-shah.png",
+        contentUrl: "https://www.harunseo.com/harun-shah.png",
+        caption: "Harun Shah (Harun SEO) — Md Harun or Roshid SEO Specialist and Senior Executive",
+        name: "Harun Shah - Senior SEO Specialist Photo",
+        description: "Official profile photo of Harun Shah (Harun Sha / Md. Harun or Roshid / Harun SEO), Senior SEO Executive at ScaleUP Ads Agency.",
         width: 1200,
         height: 1500,
       },
@@ -162,6 +185,21 @@ const jsonLd = {
       ],
       description:
         "Md. Harun or Roshid (known as Harun SEO) is a professional Senior SEO Executive with 5+ years of practical experience driving organic search visibility, high-authority backlink acquisition, and technical SEO growth.",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://www.harunseo.com/#harunshahphoto",
+      url: "https://www.harunseo.com/harun-shah.png",
+      contentUrl: "https://www.harunseo.com/harun-shah.png",
+      name: "Harun Shah - Senior SEO Specialist Photo",
+      caption: "Harun Shah (Harun SEO / Md. Harun or Roshid) Senior SEO Executive",
+      keywords: "Harun Shah, Harun Sha, Harun SEO, Harun, Md Harun or Roshid, SEO Specialist",
+      author: {
+        "@id": "https://www.harunseo.com/#person",
+      },
+      representativeOfPage: true,
+      width: 1200,
+      height: 1500,
     },
     {
       "@type": "ImageObject",
